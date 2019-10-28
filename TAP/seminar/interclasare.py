@@ -15,31 +15,33 @@ print(v1)
 print(v2)
 
 
-def mediana(v1, v2):
-    if len(v1) == 1:
-        return (v1[0] + v2[0])/2
-    if len(v1) == 2:
-        v1 = v1 + v2
-        v1.sort()
-        return (v1[1] + v1[2])/2
-    if len(v1) % 2 == 0:
-        mij1 = len(v1)//2
-        mij2 = len(v2)//2
-        if (v1[mij1] + v1[mij1+1])/2 == (v2[mij2]+v2[mij2+1])/2:
-            return (v1[mij1] + v1[mij1+1])/2
-        if v1[mij1] > v2[mij2]:
-            return mediana(v1[0:mij1+1], v2[mij2-1:-1])
-        if v1[mij1] < v2[mij2]:
-            return mediana(v1[mij1-1:-1], v2[0:mij2+1])
+def mediana(vect1, vect2):
+    print(vect1, vect2)
+    if len(vect1) == 1:
+        return (vect1[0] + vect2[0]) / 2
+    if len(vect1) == 2:
+        vect1 = vect1 + vect2
+        vect1.sort()
+        return (vect1[1] + vect1[2]) / 2
+    if len(vect1) % 2 == 0:
+        mij1 = len(vect1) // 2 - 1
+        mij2 = len(vect2) // 2 - 1
+        if (vect1[mij1] + vect1[mij1 + 1])/2 == (vect2[mij2] + vect2[mij2 + 1])/2:
+            return (vect1[mij1] + vect1[mij1 + 1]) / 2
+        if vect1[mij1] > vect2[mij2]:
+            return mediana(vect1[0:mij1 + 2], vect2[mij2:])
+        if vect1[mij1] < vect2[mij2]:
+            return mediana(vect1[mij1:], vect2[0:mij2 + 2])
     else:
-        mij1 = len(v1) // 2
-        mij2 = len(v2) // 2
-        if v1[mij1] == v2[mij2]:
-            return v1[mij1]
-        if v1[mij1] > v2[mij2]:
-            return mediana(v1[0:mij1+1], v2[mij2-1:-1])
-        if v1[mij1] < v2[mij2]:
-            return mediana(v1[mij1-1:-1], v2[0:mij2+1])
+        mij1 = len(vect1) // 2 - 1
+        mij2 = len(vect2) // 2 - 1
+        if vect1[mij1] == vect2[mij2]:
+            return vect1[mij1]
+
+        if vect1[mij1] > vect2[mij2]:
+            return mediana(vect1[0:mij1 + 1], vect2[mij2:])
+        if vect1[mij1] < vect2[mij2]:
+            return mediana(vect1[mij1:], vect2[0:mij2 + 1])
 
 
 print(mediana(v1, v2))
