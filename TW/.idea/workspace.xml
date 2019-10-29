@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="127dcd2e-3c87-4846-a97f-e3a99b1f8bdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScrisp/javaScript.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/javaScript.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proiect/titlu_proiect.html" beforeDir="false" afterPath="$PROJECT_DIR$/proiect/titlu_proiect.html" afterDir="false" />
-    </list>
+    <list default="true" id="127dcd2e-3c87-4846-a97f-e3a99b1f8bdc" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +49,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572169604914</updated>
       <workItem from="1572169610090" duration="662000" />
-      <workItem from="1572271334393" duration="5816000" />
+      <workItem from="1572271334393" duration="5855000" />
     </task>
     <servers />
   </component>
