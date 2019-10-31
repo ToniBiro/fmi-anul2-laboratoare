@@ -55,7 +55,7 @@ patru = False
 for idx, elem in enumerate(A):
     print(f"A{idx+1} = {elem}")
 
-if coliniar(A[0], A[1], A[2]) == 0 and coliniar(A[1], A[2], A[3]):   #verificam coliniaritatea celor 4 puncte
+if area(A[0], A[1], A[2]) == 0 and area(A[1], A[2], A[3]) == 0:   #verificam coliniaritatea celor 4 puncte
     A.sort()
     print("Dupa sortare:")
     for idx, elem in enumerate(A):
@@ -68,9 +68,8 @@ ar2 = abs(area(A[1], A[2], A[3]))
 ar3 = abs(area(A[0], A[2], A[3]))
 ar4 = abs(area(A[0], A[1], A[3]))
 
-print(f"ariile: a1: {ar1}, a2: {ar2}, a3: {ar3}, a4: {ar4} ")
 ar_max = max(ar1, ar2, ar3, ar4)
-print(f"ar_max: {ar_max}")
+
 if ar_max != 0:
     if ar1 == ar_max:
         if ar2 + ar3 + ar4 == ar_max:
