@@ -1,3 +1,5 @@
+# mediana a doi vectori dati sortati cu lungime egala
+
 v1 = []
 v2 = []
 
@@ -9,8 +11,6 @@ with open("vectori.in", 'r') as fin:
     for elem in data:
         v2.append(int(elem))
 
-v1.sort()
-v2.sort()
 print(v1)
 print(v2)
 
