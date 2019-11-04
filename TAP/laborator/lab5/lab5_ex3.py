@@ -42,4 +42,5 @@ def min_dist(vect, s, f):
     print(x_sort)
 
 
+
 min_dist(puncte, 0, len(puncte)-1)

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="127dcd2e-3c87-4846-a97f-e3a99b1f8bdc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/JavaScrisp/styling.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP/laborator/lab5/lab5_ex3.py" beforeDir="false" afterPath="$PROJECT_DIR$/../TAP/laborator/lab5/lab5_ex3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScrisp/javaScript.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/javaScript.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +20,7 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -27,7 +32,8 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GC" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -102,6 +108,7 @@
       <workItem from="1572271334393" duration="5859000" />
       <workItem from="1572369103199" duration="3011000" />
       <workItem from="1572516825740" duration="70000" />
+      <workItem from="1572876613698" duration="6377000" />
     </task>
     <servers />
   </component>

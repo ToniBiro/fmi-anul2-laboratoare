@@ -1,0 +1,38 @@
+p{
+    border: solid;
+    width: 100px;
+    display: block;
+    background: #806c7e;
+    opacity: 0.8;
+}
+
+#a{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+div{
+    position: relative;
+}
+
+#f{
+    position: fixed;
+    top: 50px;
+    right: 50px;
+
+}
+
+#r{
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+
+#s{
+    position: sticky;
+    left: 10px;
+    bottom: 10px;
+    top: 10px;
+    opacity: 0.9;
+}
