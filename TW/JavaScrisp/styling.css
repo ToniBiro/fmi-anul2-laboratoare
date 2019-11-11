@@ -36,3 +36,62 @@ div{
     top: 10px;
     opacity: 0.9;
 }
+
+ul{
+    position: relative;
+    width: 200px;
+    transition: width 2s;
+    animation: myanim 5s infinite;
+    animation-direction: alternate;
+}
+li:hover{
+    width: 300px;
+}
+
+p{
+    width: 100px;
+    transform: rotate(20deg) skewY(20deg);
+    transition: width 1s, background-color 2s, rotate 2s;
+}
+
+p:hover{
+    width: 200px;
+    background-color: aqua;
+    transform: rotate(30deg);
+
+}
+
+body{
+    background-color: greenyellow;
+}
+
+@keyframes myanim{
+    0%{left: 100px;}
+    25%{left: 150px;}
+    50%{left: 200px;}
+    100%{left: 250px;}
+}
+
+div{
+    border: solid;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+@media screen and (max-width: 600px)
+{
+    body{
+        background-color: aqua;
+
+    }
+    p{
+        display: inline-block;
+        width: 100px;
+    }
+}
+

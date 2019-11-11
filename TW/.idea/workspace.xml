@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="127dcd2e-3c87-4846-a97f-e3a99b1f8bdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaScrisp/styling.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TAP/laborator/lab5/cmap.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TAP/laborator/lab6/cuburi.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TAP/laborator/lab6/lab6_ex1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TAP/laborator/lab6/lab6_ex2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TAP/laborator/lab6/lab6_ex3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TAP/laborator/lab6/sir_cuv.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP/laborator/lab4/lab4_ex1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../TAP/laborator/lab4/lab4_ex1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP/laborator/lab4/vector.in" beforeDir="false" afterPath="$PROJECT_DIR$/../TAP/laborator/lab4/vector.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP/laborator/lab5/lab5_ex2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../TAP/laborator/lab5/lab5_ex2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TAP/laborator/lab5/lab5_ex3.py" beforeDir="false" afterPath="$PROJECT_DIR$/../TAP/laborator/lab5/lab5_ex3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP/laborator/lab5/ponderi.in" beforeDir="false" afterPath="$PROJECT_DIR$/../TAP/laborator/lab5/ponderi.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP/laborator/lab5/puncte.in" beforeDir="false" afterPath="$PROJECT_DIR$/../TAP/laborator/lab5/cmap.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaScrisp/javaScript.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/javaScript.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScrisp/styling.css" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/styling.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/first_page/first_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/first_page/first_page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/first_page/lab1_ex1.html" beforeDir="false" afterPath="$PROJECT_DIR$/first_page/lab1_ex1.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,6 +106,9 @@
       <item itemvalue="Python.pt cristi" />
     </list>
   </component>
+  <component name="ServiceViewManager">
+    <option name="showServicesTree" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -109,6 +124,7 @@
       <workItem from="1572369103199" duration="3011000" />
       <workItem from="1572516825740" duration="70000" />
       <workItem from="1572876613698" duration="6377000" />
+      <workItem from="1573481401468" duration="5660000" />
     </task>
     <servers />
   </component>

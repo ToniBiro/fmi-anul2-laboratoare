@@ -1,0 +1,1 @@
+# problema munte cu prog dinamica - LD si LS parcurs in sens invers si reunit siruri -> scop: munte de lungime max

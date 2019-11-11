@@ -1,4 +1,6 @@
 
+# partition pe mediana
+
 v = []
 
 with open("ponderi.in", 'r') as fin:
@@ -8,7 +10,7 @@ with open("ponderi.in", 'r') as fin:
 for i in range(len(data)):
     v.append([float(datap[i]), int(data[i])])
 
-v.sort()
+#v.sort()
 print(v)
 
 

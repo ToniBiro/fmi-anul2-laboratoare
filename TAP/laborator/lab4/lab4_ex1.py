@@ -1,15 +1,13 @@
 # inversiuni
 # inversiuni semnificative
+# trebuie modificat ->
 
 with open("vector.in", 'r') as fin:
     data = next(fin).split()
 
-
 v = []
 for elem in data:
     v.append(int(elem))
-
-
 for idx in range(len(v)//2, len(v)):
     v[idx] = 2*v[idx]
 
@@ -27,6 +25,17 @@ def inv(st, dr):
     nrm = 0 #numarul de inv (a,b) a din vs, b din vd
     i, j = 0, 0 #se interclaseaza in s vectorii vs si vd
     while i < len(vs) and j < len(vd):
+        if vs[i] < 2 * vd[j]:
+            nrm_s += j #nr de valori din vd mai mici dect vs[i]
+            i += 1
+        else:
+            s.append(vd[j])
+            j += 1
+    while i < len(vs):
+        nrm_s += j
+        i += 1
+
+    while i < len(vs) and j < len(vd):
         if vs[i] < vd[j]:
             s.append(vs[i])
             nrm += j #nr de valori din vd mai mici dect vs[i]
@@ -41,6 +50,9 @@ def inv(st, dr):
     while j < len(vd):
         s.append(vd[j])
         j += 1
+
+
+
     v[st:dr+1] = s
     return nrs + nrd + nrm
 
