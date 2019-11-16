@@ -47,7 +47,7 @@ def test_de_orientare(x1, y1, x2, y2, x, y):
     :param P: punctul pentru care verificam orientarea fata de segmentul AB
     :return: daca ce returnam < 0 sau > 0 este pe o parte sau alta a segmentului, daca = 0 este pe segment
     """
-    return (x - x1) * (y2 - y2) - (y - y1) * (x2 - x1)
+    return (x - x1) * (y2 - y1) - (y - y1) * (x2 - x1)
 
 
 def patrulater_convex(seg1, seg2, det):
@@ -57,8 +57,10 @@ def patrulater_convex(seg1, seg2, det):
         x = ((-seg1[2]) * seg2[1] - (-seg2[2] * seg1[1])) / det  # calculam punctele de intersectie a celor doua drepte
         y = (seg1[0] * (-seg2[2]) - seg2[0] * (-seg1[2])) / det
         print(f"puncte:{x}, {y}")
-    if (test_de_orientare(A[0][0], A[0][1], A[1][0], A[1][1], x, y) < 0) == ( test_de_orientare(A[1][0], A[1][1], A[2][0], A[2][1], x, y) < 0) == ( test_de_orientare(A[2][0], A[2][1], A[3][0], A[3][1], x, y) < 0) == ( test_de_orientare(A[3][0], A[3][1], A[0][0], A[0][1], x, y)< 0):
+        print(f"teste de orientare:{test_de_orientare(A[0][0], A[0][1], A[1][0], A[1][1], x, y)}, {test_de_orientare(A[1][0], A[1][1], A[2][0], A[2][1], x, y)}, {test_de_orientare(A[2][0], A[2][1], A[3][0], A[3][1], x, y)}, {test_de_orientare(A[3][0], A[3][1], A[0][0], A[0][1], x, y)}")
+    if (test_de_orientare(A[0][0], A[0][1], A[1][0], A[1][1], x, y) < 0) == (test_de_orientare(A[1][0], A[1][1], A[2][0], A[2][1], x, y) < 0) == (test_de_orientare(A[2][0], A[2][1], A[3][0], A[3][1], x, y) < 0) == (test_de_orientare(A[3][0], A[3][1], A[0][0], A[0][1], x, y) < 0):
         return True
+    print("Nu este patrulater convex")
     return False
 
 
@@ -83,9 +85,12 @@ unghi_A4 = math.acos(cos_A4)
 
 if patrulater_convex(seg1, seg2, get_det(seg1, seg2)):
     if unghi_A2 + unghi_A4 == math.pi:
-        print("A4 se afla pe cerc")
+        print("A4 se afla pe cerc.")
 
     if unghi_A2 + unghi_A4 > math.pi:
-        print("A4 se afla in interiorul cercului")
+        print("A4 se afla in interiorul cercului.")
+
+    if unghi_A4 + unghi_A2 < math.pi:
+        print("A4 se afla in afara cercului.")
 else:
     print("Nu este patrulater convex")
