@@ -2,7 +2,6 @@ p{
     border: solid;
     width: 100px;
     display: block;
-    background: #806c7e;
     opacity: 0.8;
 }
 
@@ -12,15 +11,10 @@ p{
     left: 50px;
 }
 
-div{
-    position: relative;
-}
-
 #f{
     position: fixed;
     top: 50px;
     right: 50px;
-
 }
 
 #r{
@@ -74,14 +68,29 @@ body{
 
 div{
     border: solid;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: flex;
     justify-content: center;
     align-content: center;
+    position: relative;
 }
 
+.b{
+    background-color: deeppink;
+}
 
+.c{
+    color: mediumpurple;
+    background-color: deeppink;
+}
+
+.input_div{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    max-width: 500px;
+}
 
 @media screen and (max-width: 600px)
 {
