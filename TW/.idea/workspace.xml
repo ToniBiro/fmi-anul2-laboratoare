@@ -2,40 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="127dcd2e-3c87-4846-a97f-e3a99b1f8bdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/0629777.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/14-148911_blue-paw-print-svg-clip-arts-558-x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Anunturi.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/HatchfulExport-All.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/dog-clip-art-paw-portable-network-graphics-puppy-dog.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/dog-paw-print-clip-art-free-download-aiqepEgqT.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/fa955d0ffbba8b2e77912039ab13bc55_grande.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/facebook_cover_photo_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/facebook_cover_photo_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/facebook_profile_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/flat,1000x1000,075,f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/il_570xN.1543792049_lncy.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/il_794xN.1512762848_orzq.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/instagram_profile_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/linkedin_banner_image_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/linkedin_banner_image_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/linkedin_profile_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/logo_transparent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/menu_pets.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/pets.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/pinterest_board_photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/pinterest_profile_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/twitter_header_photo_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/twitter_header_photo_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/twitter_profile_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/youtube_profile_image.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScrisp/javaScript.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/javaScript.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScrisp/styling.css" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/styling.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/first_page/first_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/first_page/first_page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/menu_pets.css" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/menu_pets.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +34,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TAP" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RunDashboard">
@@ -147,6 +117,8 @@
       <workItem from="1573481401468" duration="6856000" />
       <workItem from="1573913888553" duration="1438000" />
       <workItem from="1574024230607" duration="16790000" />
+      <workItem from="1574142492243" duration="4598000" />
+      <workItem from="1574166162377" duration="1520000" />
     </task>
     <servers />
   </component>

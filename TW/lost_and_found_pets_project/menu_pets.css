@@ -1,10 +1,10 @@
 *{
+    margin: 10px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
 body{
-    margin: 0;
-    font-family: "Arial";
 }
 
 header{
@@ -12,17 +12,11 @@ header{
     flex-direction: column;
     overflow: hidden;
     background-color: #29CC9F;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: auto;
-    margin-top: auto;
     padding-right: 30px;
     padding-left: 30px;
 }
 
 header a{
-    text-align: center;
-    float: left;
     line-height: 25px;
     color: white;
     text-decoration: none;
@@ -47,5 +41,43 @@ header a.logo{
 }
 
 nav{
-    flex-direction: column;
+    display: flex;
+    text-decoration: none;
+}
+
+nav ul{
+    display: flex;
+
+}
+
+nav li{
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.container{
+    display: flex;
+}
+
+.container aside{
+    flex: 30%;
+}
+
+.container section{
+    flex: 50%;
+}
+.container article{
+    flex: 10%;
+}
+
+#descriere{
+    display: flex;
+    max-width: 60%;
+    align-items: center;
+    flex-flow: column;
+}
+
+ul li{
+    list-style: none;
 }
