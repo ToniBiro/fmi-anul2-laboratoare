@@ -12,6 +12,7 @@ for i in range(len(data)):
 
 print(v)
 
+
 def partition(vect):
     pivot = vect[0][1]
     stanga  = list(filter(lambda x: x[1] < pivot, vect))
