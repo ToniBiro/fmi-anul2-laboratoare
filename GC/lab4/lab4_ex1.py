@@ -11,7 +11,6 @@ with open('patrulater.in', 'r') as fin:    #citirea punctelor
         data = line.split()
         A.append((float(data[0]), float(data[1]), idx))
 
-
 print(A)
 
 # x1 = A[0][0]  y1 = A[0][1]
@@ -92,5 +91,3 @@ if patrulater_convex(seg1, seg2, get_det(seg1, seg2)):
 
     if unghi_A4 + unghi_A2 < math.pi:
         print("A4 se afla in afara cercului.")
-else:
-    print("Nu este patrulater convex")
