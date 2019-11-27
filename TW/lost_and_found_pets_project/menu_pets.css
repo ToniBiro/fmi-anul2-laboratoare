@@ -1,19 +1,17 @@
 *{
-    margin: 10px;
-    padding: 0px;
     box-sizing: border-box;
-}
-
-body{
 }
 
 header{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     overflow: hidden;
     background-color: #29CC9F;
     padding-right: 30px;
     padding-left: 30px;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 header a{
@@ -23,12 +21,12 @@ header a{
     padding: 12px;
     font-size: 20px;
     margin-right: 20px;
+    transition: background-color 0.5s;
 }
 
 header a:hover{
     background-color: #49d6af;
     opacity: .8;
-    font-size: 21px;
 }
 
 header a.logo{
@@ -38,9 +36,11 @@ header a.logo{
 
 .img_logo{
     height: 100px;
+    width: 200px;
 }
 
 nav{
+    margin-left: auto;
     display: flex;
     text-decoration: none;
 }
@@ -50,10 +50,22 @@ nav ul{
 
 }
 
-nav li{
-    text-align: center;
-    position: relative;
-    width: 100%;
+.dropdown ul{
+    flex-direction: column;
+    display: none;
+    padding: 0;
+}
+
+
+.dropdown:hover ul{
+    display: flex;
+    position: absolute;
+
+
+}
+
+nav li {
+    background-color: #29CC9F;
 }
 
 .container{
@@ -61,21 +73,24 @@ nav li{
 }
 
 .container aside{
-    flex: 30%;
+    flex: 10%;
+    background: #6bffd1;
 }
 
 .container section{
-    flex: 50%;
+    flex: 60%;
+    text-align: center;
 }
 .container article{
-    flex: 10%;
+    flex: 20%;
 }
 
 #descriere{
     display: flex;
-    max-width: 60%;
+    /* max-width: 60%; */
     align-items: center;
     flex-flow: column;
+    padding: 10px;
 }
 
 ul li{

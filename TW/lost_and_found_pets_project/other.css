@@ -1,0 +1,88 @@
+
+.contact{
+    display: flex;
+}
+
+
+table {
+    font-family: "Arial";
+    font-size: 1.5em;
+    border-collapse: collapse;
+    width: 50%;
+    text-align: center;
+    vertical-align: center;
+}
+
+th {
+    border: 1px solid;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #5fddcb;
+}
+
+form{
+    flex: 50%;
+    text-align: center;
+}
+
+img{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.anunt{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+figure{
+    margin: auto;
+}
+
+#anunturi{
+    display: flex;
+    flex-direction: row;
+}
+
+#home_iframe{
+    width: 100%;
+    height: 100%;
+}
+
+#text_animat {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: #29CC9F;
+    text-blink: on;
+    transform: rotate(2deg);
+    animation: anima 1s infinite;
+    transition: font-size;
+    animation-direction: alternate;
+}
+
+h1{
+    text-align: center;
+    font-size: 30px;
+}
+
+@keyframes anima {
+    from {color: #fbff20; font-size: 30px}
+    to {color: #ff9700; font-size: 40px}
+
+}
+
+@media screen and (max-width: 600px)
+{
+    img{
+        max-width: 100px;
+
+    }
+    p{
+        display: inline-block;
+        width: 100px;
+    }
+}
+

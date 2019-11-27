@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Lost and found</title>
     <link rel="stylesheet" type="text/css" href="menu_pets.css">
+    <link rel="stylesheet" type="text/css" href="other.css">
+    <base href="C:\Users\toni\Documents\GitHub\fmi-anul2-laboratoare\TW\lost_and_found_pets_project/" target="_blank">
+    <script src="pets.js"></script>
 </head>
 <body>
 
@@ -13,13 +16,14 @@
     <nav>
         <ul>
             <li><a href="Home.html">Acasa</a></li>
-            <li>
+            <li class="dropdown">
+
                 <a href="Anunturi.html">Anunturi</a>
                 <ul>
-                    <li>De cautare</li>
-                    <li>De gasire</li>
-                    <li>De vanzare</li>
-                    <li>De cumparare</li>
+                    <li><a href="Anunturi.html#caut">De cautare</a></li>
+                    <li><a href="Anunturi.html#gasit">De gasire</a></li>
+                    <li><a href="Anunturi.html#vand">De vanzare</a></li>
+                    <li><a href="Anunturi.html#cumpar">De cumparare</a></li>
 
                 </ul>
             </li>
@@ -40,11 +44,12 @@
         <h1>Articole</h1>
         <p>Aici vor aparea cele mai recente articole.</p>
         <p>Indiferent din ce sectiune vin.</p>
+        <iframe id="home_iframe" src="file:///C:/Users/toni/Documents/GitHub/fmi-anul2-laboratoare/TW/lost_and_found_pets_project/Anunturi.html"></iframe>
     </article>
 
     <section>
         <div id="descriere">
-            <h1>Daca ti-ai pierdut animalul de companie</h1>
+            <h1>Daca ti-ai <span style="color:#6bffd1">pierdut</span> animalul de companie</h1>
             <h4>Utilizatorii posteaza fie anunturi de gasire fie anunturi de cautare al unui animalut de companie astfel formandu-se o comunitate
             de intraajutorare de la care beneficiaza si stapanul, dar si animalutul.</h4>
             <h1>Daca vrei un animal nou de companie</h1>
