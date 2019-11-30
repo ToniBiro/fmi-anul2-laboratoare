@@ -51,6 +51,7 @@ def test_de_orientare(x1, y1, x2, y2, x, y):
 
 def patrulater_convex(seg1, seg2, det):
     if det == 0:
+        print("Nu este patrulater convex")
         return False
     if det != 0:
         x = ((-seg1[2]) * seg2[1] - (-seg2[2] * seg1[1])) / det  # calculam punctele de intersectie a celor doua drepte
@@ -83,6 +84,7 @@ unghi_A2 = math.acos(cos_A2)
 unghi_A4 = math.acos(cos_A4)
 
 if patrulater_convex(seg1, seg2, get_det(seg1, seg2)):
+    print("Este patrulater convex!")
     if unghi_A2 + unghi_A4 == math.pi:
         print("A4 se afla pe cerc.")
 
