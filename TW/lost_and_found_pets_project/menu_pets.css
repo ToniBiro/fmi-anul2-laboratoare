@@ -30,13 +30,13 @@ header a:hover{
 }
 
 header a.logo{
-    float: left;
+    /* float: left; */
     line-height: 50px;
 }
 
 .img_logo{
-    height: 100px;
-    width: 200px;
+    /* height: 100px; */
+    /* width: 200px; */
 }
 
 nav{

@@ -2,24 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="127dcd2e-3c87-4846-a97f-e3a99b1f8bdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/0gqwfnr8eaa31.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/2016_04_07_bufnita_rsz_crp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/332601-cat-wallpaper-hd-0n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/buburuza-pe-pup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/highland-cattle-calves-12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/melc_naturashop_0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/other.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/quoka.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/slide_306138_62897.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/tumblr_mnwhdy5v9L1s4gwauo1_400.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/wombat-australia.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScrisp/javaScript.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/javaScript.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/Anunturi.html" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Anunturi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScrisp/styling.css" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/styling.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/Contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/menu_pets.css" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/menu_pets.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/pets.js" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/pets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/other.css" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/other.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,9 +99,6 @@
       <item itemvalue="Python.pt cristi" />
     </list>
   </component>
-  <component name="ServiceViewManager">
-    <option name="showServicesTree" value="false" />
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -136,6 +122,10 @@
       <workItem from="1574599155197" duration="16623000" />
       <workItem from="1574689163479" duration="8010000" />
       <workItem from="1574843064522" duration="10000" />
+      <workItem from="1575132606323" duration="1104000" />
+      <workItem from="1575231332234" duration="2035000" />
+      <workItem from="1575283843155" duration="8176000" />
+      <workItem from="1575396509757" duration="24000" />
     </task>
     <servers />
   </component>

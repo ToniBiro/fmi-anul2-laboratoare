@@ -92,6 +92,10 @@ input{
     max-width: 500px;
 }
 
+#rand_b{
+    position: relative;
+}
+
 @media screen and (max-width: 600px)
 {
     body{
