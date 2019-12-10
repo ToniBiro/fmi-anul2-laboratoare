@@ -96,6 +96,15 @@ input{
     position: relative;
 }
 
+#mouse_p{
+    position: absolute;
+}
+
+#arrow_p{
+    background-color: #29CC9F;
+    position: absolute;
+}
+
 @media screen and (max-width: 600px)
 {
     body{
