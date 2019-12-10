@@ -23,6 +23,7 @@ def slope(x1, y1, x2, y2):
         return 0
     return float((y2 - y1) / (x2 - x1))
 
+
 panta1 = slope(A[0][0], A[0][1], A[1][0], A[1][1])
 seg1 = (panta1, -1, A[0][1] - panta1*A[0][0])
 
