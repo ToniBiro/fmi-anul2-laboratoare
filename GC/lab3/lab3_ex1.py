@@ -48,7 +48,7 @@ if det != 0:
     print(x, y)
 
     if max(A[0][0], A[1][0]) >= x >= min(A[0][0], A[1][0]) and max(A[2][0], A[3][0]) >= x >= min(A[2][0], A[3][0]):   # cazul in care avem intersectie de segmente
-        if max(A[0][1], A[1][1]) <= y <= min(A[0][1], A[1][1]) and max(A[2][1], A[3][1]) <= y <= min(A[2][1], A[3][1]):
+        if max(A[0][1], A[1][1]) >= y >= min(A[0][1], A[1][1]) and max(A[2][1], A[3][1]) >= y >= min(A[2][1], A[3][1]):
             print(f"[A1, A2] si [A3, A4] se intersecteaza in punctul {x}, {y}")
     else:
         print("Cele 2 segmente nu se intersecteaza!")
