@@ -2,9 +2,76 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="127dcd2e-3c87-4846-a97f-e3a99b1f8bdc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../TAP/omniconvert_process_data/intrare.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/0gqwfnr8eaa31.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/2016_04_07_bufnita_rsz_crp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/332601-cat-wallpaper-hd-0n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/buburuza-pe-pup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/facebook_cover_photo_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/facebook_cover_photo_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/facebook_profile_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/highland-cattle-calves-12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/il_570xN.1543792049_lncy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/il_794xN.1512762848_orzq.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/instagram_profile_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/linkedin_banner_image_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/linkedin_banner_image_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/linkedin_profile_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/logo_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/melc_naturashop_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/pinterest_board_photo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/pinterest_profile_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/quoka.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/slide_306138_62897.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/tumblr_mnwhdy5v9L1s4gwauo1_400.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/twitter_header_photo_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/twitter_header_photo_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/twitter_profile_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/wombat-australia.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lost_and_found_pets_project/poze/youtube_profile_image.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScrisp/javaScript.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/javaScript.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScrisp/my_first_JS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/0629777.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/0gqwfnr8eaa31.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/14-148911_blue-paw-print-svg-clip-arts-558-x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/2016_04_07_bufnita_rsz_crp.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/332601-cat-wallpaper-hd-0n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/Anunturi.html" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Anunturi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/Contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/HatchfulExport-All.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/buburuza-pe-pup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/dog-clip-art-paw-portable-network-graphics-puppy-dog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/dog-paw-print-clip-art-free-download-aiqepEgqT.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/fa955d0ffbba8b2e77912039ab13bc55_grande.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/facebook_cover_photo_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/facebook_cover_photo_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/facebook_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/flat,1000x1000,075,f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/highland-cattle-calves-12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/il_570xN.1543792049_lncy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/il_794xN.1512762848_orzq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/instagram_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/linkedin_banner_image_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/linkedin_banner_image_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/linkedin_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/logo_transparent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/melc_naturashop_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/other.css" beforeDir="false" afterPath="$PROJECT_DIR$/lost_and_found_pets_project/other.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/pinterest_board_photo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/pinterest_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/quoka.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/slide_306138_62897.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/tumblr_mnwhdy5v9L1s4gwauo1_400.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/twitter_header_photo_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/twitter_header_photo_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/twitter_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/wombat-australia.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lost_and_found_pets_project/youtube_profile_image.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,6 +192,8 @@
       <workItem from="1575900739141" duration="6628000" />
       <workItem from="1576505532400" duration="5902000" />
       <workItem from="1576657458937" duration="288000" />
+      <workItem from="1578319827459" duration="8195000" />
+      <workItem from="1578465018568" duration="12000" />
     </task>
     <servers />
   </component>
@@ -148,6 +217,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TW$pt_cristi.coverage" NAME="pt cristi Coverage Results" MODIFIED="1572377217895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TW$pt_cristi.coverage" NAME="pt cristi Coverage Results" MODIFIED="1578339801738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

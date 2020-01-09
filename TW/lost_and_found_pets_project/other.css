@@ -76,6 +76,10 @@ h1{
     font-size: 30px;
 }
 
+#contacth1{
+    text-align: left;
+}
+
 @keyframes anima {
     from {color: #fbff20; font-size: 30px}
     to {color: #ff9700; font-size: 40px}

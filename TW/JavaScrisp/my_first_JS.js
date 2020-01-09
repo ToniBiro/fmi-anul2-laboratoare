@@ -173,7 +173,6 @@ window.onload = function () {
     var vector = {prop1: 4, prop2: 33};
     var d;
     ancora.onclick = function(){
-
         d = new Date();
         localStorage.setItem(ancora.href, d);
     }
