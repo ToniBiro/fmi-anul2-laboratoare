@@ -1,0 +1,148 @@
+
+body{
+    transition: background-color 0.5s;
+}
+
+.contact{
+    display: flex;
+    justify-content: center;
+
+}
+
+
+table {
+    font-family: "Arial";
+    /* font-size: 1.5em; */
+    border-collapse: collapse;
+    /* text-align: center; */
+    vertical-align: center;
+    display: inline-block;
+}
+
+.tabelul{
+    display: inline-block;
+}
+
+.formular{
+    display: inline-block;
+}
+
+th {
+    border: 1px solid;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #5fddcb;
+}
+
+form{
+    /* flex: 50%; */
+    text-align: center;
+    display: inline-block;
+    width: 60%;
+    /* float: left; */
+}
+
+img{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.anunt{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+figure{
+    margin: auto;
+}
+
+#anunturi{
+    display: flex;
+    flex-direction: row;
+}
+
+#home_iframe{
+    width: 100%;
+    height: 100%;
+}
+
+#text_animat {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: #29CC9F;
+    text-blink: on;
+    transform: rotate(2deg);
+    animation: anima 1s infinite;
+    animation-direction: alternate;
+}
+
+h1{
+    text-align: center;
+    font-size: 30px;
+}
+
+#contacth1{
+    text-align: left;
+}
+
+#animatie{
+    height: 400px;
+    width: auto;
+}
+
+.time{
+    display: block;
+    position: fixed;
+    bottom: 0;
+
+}
+
+.wikiStyle{
+    border: 5px solid black;
+    border-image: linear-gradient(greenyellow, green)1 100%;
+    border-radius: 10px;
+    padding: 10px;
+    background: linear-gradient(greenyellow, green);
+}
+
+#mainBlockHome{
+    display: block;
+    align-items: center;
+}
+
+#personalizare{
+    margin-bottom: 100px;
+}
+
+@keyframes anima {
+    from {color: #fbff20; font-size: 30px}
+    to {color: #ff9700; font-size: 40px}
+
+}
+
+@media screen and (max-width: 600px)
+{
+    img{
+        max-width: 100px;
+
+    }
+    p{
+        display: inline-block;
+        width: 100px;
+    }
+    .img_logo{
+        position: relative;
+        left: 10px;
+        top: 10px;
+        transition: width 2s;
+    }
+    .img_logo:hover{
+        width: 550px;
+        height: 100px;
+    }
+
+}
+

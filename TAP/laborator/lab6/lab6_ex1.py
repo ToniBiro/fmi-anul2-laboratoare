@@ -1,5 +1,5 @@
 # n cuburi
-sir =[]
+sir = []
 with open("cuburi.in", "r") as fin:
     n = next(fin).split()
     col = int(n[1])
@@ -14,7 +14,8 @@ h = [elem[0] for elem in sir]
 for i in range(len(h)):
     h[i] = [h[i], n, i]
 
-for i in range(n-1, -1, -1):
+for i in range(n - 1, -1, -1):
+    print(f"iiii:{i}")
     for j in range(i, n):
         if sir[j][0] != sir[i][0] and sir[j][1] != sir[i][1]:
             if h[j][0] + sir[i][0] > h[i][0]:
@@ -25,13 +26,11 @@ m = max(h)
 print(m)
 
 
-
 def rez(ind):
     if ind >= n:
         return
     print(ind)
     return rez(h[ind][1])
 
+
 rez(m[2])
-
-

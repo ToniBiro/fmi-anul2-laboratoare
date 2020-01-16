@@ -64,22 +64,22 @@ window.onload = function () {
     //     }
     // }
     //
-    // var t = document.querySelector("input[type='text']");
-    // var b = document.querySelector("input[type='button']");
-    // b.onclick = function () {
-    //     alert(t.value)
-    //
-    //
-    //     var colectia_2 = document.getElementsByName("r1");
-    //     console.log(colectia_2)
-    //     for (let x of colectia_2) {
-    //         if (x.checked) {
-    //             let culoare = x.value;
-    //             t.style.backgroundColor = culoare;
-    //             console.log(t);
-    //         }
-    //     }
-    // }
+    var t = document.querySelector("input[type='text']");
+    var b = document.querySelector("input[type='button']");
+    b.onclick = function () {
+        alert(t.value)
+
+
+        var colectia_2 = document.getElementsByName("r1");
+        console.log(colectia_2)
+        for (let x of colectia_2) {
+            if (x.checked) {
+                let culoare = x.value;
+                t.style.backgroundColor = culoare;
+                console.log(t);
+            }
+        }
+    }
     //
     // var rand_b = document.getElementById('rand_b');
     // rand_b.dist = 0;
@@ -124,48 +124,48 @@ window.onload = function () {
     // //     var val = random_color();
     // //     setTimeout(function () {parag[i].style.backgroundColor = '#' + val}, 1000*(i+1));
     // // }
-    //
-    // var body_event = document.getElementsByTagName("body");
-    // var div_event = document.getElementsByClassName("input_div");
-    // var p_event = document.getElementById("event_listener_test");
-    //
-    // p_event.addEventListener("click", function () {alert("paragraf click event")}, true);
-    // body_event[0].addEventListener("click", function (event) {alert("body click event"); alert(event.target)}, false);
-    // div_event[0].addEventListener("click", function () {alert("div click event")}, true);
-    //
-    // var mouse_par = document.getElementById("mouse_p");
-    //
-    // body_event[0].onmousemove = function (e1) {
-    //     mouse_par.style.left = e1.pageX + "px";
-    //     mouse_par.style.top = e1.pageY + "px";
-    // }
-    // var arrow_pp = document.getElementById("arrow_p")
-    //
-    //
-    // arrow_pp.style.left = getComputedStyle(arrow_pp, null).left
-    // arrow_pp.style.top = getComputedStyle(arrow_pp, null).top
-    //
-    // body_event[0].onkeydown = function (event) {
-    //     var press = event.key;
-    //     if(press == "ArrowRight"){
-    //         arrow_pp.style.left = (parseInt(arrow_pp.style.left) + 10) + "px"
-    //     }
-    //
-    //     if(press == "ArrowLeft"){
-    //         arrow_pp.style.left = (parseInt(arrow_pp.style.left) - 10) + "px"
-    //     }
-    //     if(press == "ArrowUp") {
-    //         arrow_pp.style.top = (parseInt(arrow_pp.style.top) - 10) + "px"
-    //     }
-    //     if(press == "ArrowDown"){
-    //         arrow_pp.style.top = (parseInt(arrow_pp.style.top) + 10) + "px"
-    //     }
-    // }
-    //
-    //
-    // body_event[0].addEventListener("keydown", function(event){console.log(event.target); event.preventDefault();}, true);
-    //
-    //
+
+    var body_event = document.getElementsByTagName("body");
+    var div_event = document.getElementsByClassName("input_div");
+    var p_event = document.getElementById("event_listener_test");
+
+    p_event.addEventListener("click", function () {alert("paragraf click event")}, true);
+    body_event[0].addEventListener("click", function (event) {alert("body click event"); alert(event.target)}, false);
+    div_event[0].addEventListener("click", function () {alert("div click event")}, true);
+
+    var mouse_par = document.getElementById("mouse_p");
+
+    body_event[0].onmousemove = function (e1) {
+        mouse_par.style.left = e1.pageX + "px";
+        mouse_par.style.top = e1.pageY + "px";
+    }
+    var arrow_pp = document.getElementById("arrow_p")
+
+
+    arrow_pp.style.left = getComputedStyle(arrow_pp, null).left
+    arrow_pp.style.top = getComputedStyle(arrow_pp, null).top
+
+    body_event[0].onkeydown = function (event) {
+        var press = event.key;
+        if(press == "ArrowRight"){
+            arrow_pp.style.left = (parseInt(arrow_pp.style.left) + 10) + "px"
+        }
+
+        if(press == "ArrowLeft"){
+            arrow_pp.style.left = (parseInt(arrow_pp.style.left) - 10) + "px"
+        }
+        if(press == "ArrowUp") {
+            arrow_pp.style.top = (parseInt(arrow_pp.style.top) - 10) + "px"
+        }
+        if(press == "ArrowDown"){
+            arrow_pp.style.top = (parseInt(arrow_pp.style.top) + 10) + "px"
+        }
+    }
+
+
+    body_event[0].addEventListener("keydown", function(event){console.log(event.target); event.preventDefault();}, true);
+
+
 
     var ancora = document.getElementById("idAncora");
     var ancora2 = document.getElementById("idAncora2");

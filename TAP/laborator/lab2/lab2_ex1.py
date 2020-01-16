@@ -83,4 +83,5 @@ print(sum)
 # + varianta 1 prob 3 lab 2  -  mai eficient prin cautare binara
 
 # la seminar
-#cautare binara in sirul meu ordonat descrescator - cea mai mica valoare din sir care e mai mare decat elementul meu curent
+# cautare binara in sirul meu ordonat descrescator - cea mai mica valoare din sir care e mai mare decat elementul meu
+# curent

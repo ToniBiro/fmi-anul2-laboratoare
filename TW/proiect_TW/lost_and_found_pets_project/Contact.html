@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="menu_pets.css">
+    <link rel="stylesheet" type="text/css" href="other.css">
+    <script src="pets.js"></script>
+    <script src="contact.js"></script>
+</head>
+<body>
+
+<header>
+
+    <a href="Home.html" class="logo"> <img class="img_logo" src="poze/linkedin_banner_image_1.png" alt="pet logo"></a>
+    <nav>
+        <ul>
+            <li><a href="Home.html">Acasa</a></li>
+            <li class="dropdown">
+                <a href="Anunturi.html">Anunturi</a>
+                <ul>
+                    <li><a href="Anunturi.html#caut">De cautare</a></li>
+                    <li><a href="Anunturi.html#gasit">De gasire</a></li>
+                    <li><a href="Anunturi.html#vand">De vanzare</a></li>
+                    <li><a href="Anunturi.html#cumpar">De cumparare</a></li>
+
+                </ul>
+            </li>
+
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+
+
+<!--        <a href="Home.html">Acasa</a>-->
+<!--        <a href="Anunturi.html">Anunturi</a>-->
+<!--        <a href="Contact.html">Contact</a>-->
+    </nav>
+
+</header>
+
+<section id="animatie">
+    <h1 id="text_animat">Posteaza un anunt!</h1>
+    <section class="anunt">
+        <figure id="vac">
+            <img src="poze/highland-cattle-calves-12.jpg">
+            <figcaption>fluffy-cow</figcaption>
+        </figure>
+    </section>
+</section>
+
+<section class="contact">
+
+<div class="tabelul">
+
+    <h1 id="contacth1">Ce animalute au trecut pe aici?</h1>
+
+    <table>
+        <tr>
+            <th>Animalut</th>
+            <th>Regiune</th>
+            <th>Iubibilitate</th>
+            <th>Wiki</th>
+
+        </tr>
+
+        <tr>
+            <th>Wombat</th>
+            <th>Australia</th>
+            <th>100%</th>
+            <th><a href="https://ro.wikipedia.org/wiki/Vombatide">Mai multe info</a> </th>
+        </tr>
+
+        <tr>
+            <th>Porcusor</th>
+            <th>Ferma</th>
+            <th>100%</th>
+            <th><a href="https://ro.wikipedia.org/wiki/Porc_domestic">Mai multe info</a> </th>
+        </tr>
+
+        <tr>
+            <th>Catelus</th>
+            <th>Camp/Munte/Domestic</th>
+            <th>100%</th>
+            <th><a href="https://ro.wikipedia.org/wiki/C%C3%A2ine">Mai multe info</a> </th>
+        </tr>
+
+        <tr>
+            <th>Pisicuta</th>
+            <th>Casa</th>
+            <th>100%</th>
+            <th><a href="https://ro.wikipedia.org/wiki/Pisic%C4%83_de_cas%C4%83">Mai multe info</a> </th>
+        </tr>
+
+        <tr>
+            <th>Buburuza</th>
+            <th>Aer</th>
+            <th>100%</th>
+            <th><a href="https://ro.wikipedia.org/wiki/Buburuz%C4%83">Mai multe info</a> </th>
+        </tr>
+        <tr>
+            <th>Vacuta</th>
+            <th>Ferma/Casa</th>
+            <th>100%</th>
+            <th><a href="https://ro.wikipedia.org/wiki/Vac%C4%83">Mai multe info</a> </th>
+        </tr>
+        <tr>
+            <th>Quokka</th>
+            <th>Casa</th>
+            <th>100%</th>
+            <th><a href="https://en.wikipedia.org/wiki/Quokka">Mai multe info</a> </th>
+        </tr>
+        <tr>
+            <th>Melcusor</th>
+            <th>Pe unde poate</th>
+            <th>100%</th>
+            <th><a href="https://ro.wikipedia.org/wiki/Melc">Mai multe info</a> </th>
+        </tr>
+
+    </table>
+</div>
+    <div id="formular">
+        <h1>Pentru a posta un anunt completati acest tabel si va vom contacta</h1>
+        <form action="/action" method="get">
+            Nume:
+            <br>
+            <input type="text" name="nume" value="Ion Popescu">
+            <br>
+            Actiune dorita:<br>
+            <input type="text" name="actiune" value="caut, gasit">
+            <br>
+            Mesaj:<br>
+            <input type="text" name="mesaj" value="vreau sa spun ca...">
+            <br>
+            Numar de telefon:<br>
+            <input type="text" name="numar" value="numar">
+            <br>
+            <br>
+            <input type="submit" value="Trimite">
+            <p id="formSent"></p>
+        </form>
+    </div>
+
+</section>
+
+<section class="time">
+    <p id="showTime"></p>
+</section>
+
+</body>
+</html>
