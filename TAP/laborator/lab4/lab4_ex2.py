@@ -33,6 +33,7 @@ def tabla(dim, i, j):
             j -= dim//2
             return 3*total//4 + tabla(dim//2, i, j)
 
+
 with open("z.out", 'w') as fout:
     for interogare in interogari:
         print(tabla(2**n, interogare[0], interogare[1]), file=fout)

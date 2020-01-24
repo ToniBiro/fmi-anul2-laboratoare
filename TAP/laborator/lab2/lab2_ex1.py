@@ -1,9 +1,9 @@
-#sortare descrescator dupa profit
-#activitatea de la pasul i se i-a cel mai tarziu posibil
+# sortare descrescator dupa profit
+# activitatea de la pasul i se i-a cel mai tarziu posibil
 
 data = []
 
-with open("intrare1.in", 'r') as fin:
+with open("intrare.in", 'r') as fin:
     n = fin.readline().split()
     n = int(n[0])
     datap = fin.readline().split()
@@ -43,6 +43,7 @@ for i in range(n+1):
 aux = [elem - 1 for elem in dads]
 
 print(dads)
+print(aux)
 
 
 def find_father(a):
