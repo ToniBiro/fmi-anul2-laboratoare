@@ -15,6 +15,12 @@ public class Arrays {
         boolean[] booleanArray = new boolean[4];
 
         int[] ints = new int[]{23, 35, 11, 22};
-        
+
+        char[] chars = {'j', 'a', 'v', 'a'};
+
+        for (char c : chars){
+            System.out.println(chars);
+        }
+        System.out.println(chars);
     }
 }
