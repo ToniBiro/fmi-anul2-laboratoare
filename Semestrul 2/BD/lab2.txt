@@ -1,0 +1,108 @@
+SELECT * FROM employees
+
+ex1
+
+SELECT first_name || ' ' || last_name || 'castiga' || salary || ' lunar dar doreste ' || TO_NUMBER(salary)*3 "Salariu Ideal" FROM employees
+
+ex2.1
+
+SELECT INITCAP(first_name)||' '||UPPER(last_name)||' '||LENGTH(last_name)
+FROM employees
+WHERE SUBSTR(first_name, 0, 1)='J' OR SUBSTR(first_name, 0, 1)='R' OR INSTR(LOWER(first_name), 'a', 3)=3
+ORDER BY LENGTH(last_name) DESC
+
+ex2.2
+
+SELECT INITCAP(first_name)||' '||UPPER(last_name)||' '||LENGTH(last_name)
+FROM employees
+WHERE first_name LIKE 'J%' OR first_name LIKE 'R%' OR INSTR(LOWER(first_name), 'a', 3)=3
+ORDER BY LENGTH(last_name) DESC
+
+ex3
+
+SELECT employee_id, last_name, department_id FROM employees
+WHERE RTRIM(LTRIM(LOWER(first_name)))='steven'
+
+ex4
+
+SELECT employee_id, last_name, LENGTH(last_name), INSTR(LOWER(first_name), 'a')
+FROM employees
+WHERE INSTR(LOWER(last_name), 'e', LENGTH(last_name))= LENGTH(last_name)
+
+ex5
+
+SELECT first_name, last_name, salary, employee_id
+FROM employees
+WHERE MOD(CURRENT_DATE-hire_date, 7)=0
+
+ex6
+
+SELECT employee_id, first_name, last_name, salary,
+  ROUND(salary + salary*(15/100), 2) "Salariu nou",
+  MOD(FLOOR(ROUND(salary + salary*(15/100), 2)/100), 100) "Numar sute"
+FROM employees
+WHERE MOD(salary,1000)<>0
+
+ex7
+
+SELECT last_name, hire_date
+FROM employees
+WHERE commission_pct<>0
+
+ex8
+
+SELECT TO_CHAR(SYSDATE+30, 'MONTH, DD, YYYY, HH24:MI:SS') "peste 30 de zile"
+FROM dual
+
+ex9
+
+SELECT ROUND(LAST_DAY('1-DEC-2020')-CURRENT_DATE)
+FROM dual
+
+ex10
+
+SELECT TO_CHAR(SYSDATE+0.5, 'DD/MM/YYYY')
+FROM dual
+
+SELECT TO_CHAR(SYSDATE + 5 * (1/(24 * 60)), 'DD/MM/YYYY')
+FROM dual
+
+ex11
+
+SELECT first_name||' ' ||last_name "name", hire_date, NEXT_DAY(ADD_MONTHS(hire_date, 6), 'Monday') "Negociere"
+FROM employees
+
+ex12
+
+SELECT last_name, ROUND(MONTHS_BETWEEN(SYSDATE, hire_date)) "Luni lucrate"
+FROM employees
+ORDER BY  ROUND(MONTHS_BETWEEN(SYSDATE, hire_date))
+
+ex13
+
+SELECT last_name, hire_date, TO_CHAR(hire_date, 'DAY') "Zi"
+FROM employees
+ORDER BY TO_CHAR(hire_date, 'D')
+
+ex14
+
+SELECT last_name, NVL(TO_CHAR(commission_pct), 'fara comision') "Comision"
+FROM employees
+
+ex15
+
+SELECT last_name, salary, commission_pct
+FROM employees
+WHERE salary * (1 + NVL(commission_pct, 0)) >= 10000;
+
+ex16
+
+SELECT last_name, employee_id, job_id, salary, 
+  CASE job_id
+  WHEN 'IT_PROG' THEN salary + salary*(20/100)
+  WHEN 'SA_REP' THEN salary + salary*(25/100)
+  WHEN 'SA_MAN' THEN salary + salary*(35/100)
+  ELSE salary
+  END "Salariu renegociat"
+FROM employees  
+
