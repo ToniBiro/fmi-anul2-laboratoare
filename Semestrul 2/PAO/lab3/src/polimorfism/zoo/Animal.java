@@ -6,9 +6,9 @@ public abstract class Animal {
     private int varsta;
     protected String tipHrana;
     protected String sunetSpecific;
-s
+
     public Animal(String nume, int varsta){
-        nrIndentificare = hashCode();
+        nrIdentificare = hashCode();
         this.nume = nume;
         this varsta = varsta;
     }
@@ -23,6 +23,10 @@ s
     @Override
     public String toString(){
         return "Animal din categoria " +this.getClass().getSuperclass().getSimpleName() +
-                ", din specia " +
+                ", din specia " + this.getClass().getSimpleName() +
+                "{" + " nume= " + nume + '\'' +
+                " , varsta= " + varsta +
+                ", nrIdentificare= " + nrIdentificare+
+                "}";
     }
 }
