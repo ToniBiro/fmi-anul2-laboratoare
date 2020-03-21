@@ -2,9 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="822cafd7-f5ca-4f14-8c49-b6eb231dedeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fmi-anul2-laboratoare.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fmi-anul2-laboratoare.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/curs4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/asociere/Departament.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/asociere/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/asociere/Profesor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/asociere/Universitate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/imutabilitate/Adresa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/imutabilitate/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/imutabilitate/Persoana.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/imutabilitate/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/asociere/Departament.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/asociere/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/asociere/Profesor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/asociere/Universitate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/imutabilitate/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/imutabilitate/Persoana.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/imutabilitate/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestrul 2/PAO/lab3/lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/lab4.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,12 +34,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-90" />
-    <option name="y" value="20" />
-    <option name="width" value="1750" />
-    <option name="height" value="420" />
-  </component>
   <component name="ProjectId" id="1ZCz4F5y1wXZNLjcKJPWfldivUv" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -29,8 +42,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -44,6 +57,30 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="a_star_incomplet" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="fmi-anul2-laboratoare" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\toni\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -55,6 +92,12 @@
       <option name="presentableId" value="Default" />
       <updated>1582195126054</updated>
       <workItem from="1584357672527" duration="2461000" />
+      <workItem from="1584428192479" duration="2878000" />
+      <workItem from="1584552228428" duration="3000" />
+      <workItem from="1584559911539" duration="5000" />
+      <workItem from="1584625037403" duration="6000" />
+      <workItem from="1584628577904" duration="36000" />
+      <workItem from="1584785959766" duration="18784000" />
     </task>
     <servers />
   </component>
@@ -66,7 +109,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -74,5 +119,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py</url>
+          <line>162</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$a_star_incomplet.coverage" NAME="a_star_incomplet Coverage Results" MODIFIED="1584807629105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
   </component>
 </project>
