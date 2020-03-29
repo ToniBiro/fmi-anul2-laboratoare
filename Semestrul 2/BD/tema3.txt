@@ -1,0 +1,233 @@
+
+--lab2 - continuare join
+
+--ex 17
+
+select e.last_name, e.department_id, d.department_name
+from employees e
+left outer join departments d on e.department_id = d.department_id
+
+
+--ex18
+
+select e.job_id, e.department_id
+from employees e
+left outer join departments d on e.department_id = d.department_id
+where e.department_id = 30
+
+--ex19
+
+select e.last_name, d.department_name, d.location_id
+from employees e
+left outer join departments d on e.department_id = d.department_id
+where e.commission_pct is not null
+
+--ex20
+
+select e.last_name, d.department_name
+from employees e
+left join departments d on e.department_id = d.department_id
+where lower(e.last_name) like '%a%'
+
+--ex21
+
+select e.last_name, e.job_id, d.department_id, d.department_name, l.city
+from employees e
+full join departments d on e.department_id=d.department_id
+full join locations l on d.location_id=l.location_id
+where lower(l.city) like 'oxford'
+
+--ex22
+
+select e1.employee_id "Ang#", e1.last_name "Angajat", e2.last_name "Manager", e1.manager_id "Mgr#"
+from employees e1
+inner join employees e2 on e1.manager_id=e2.employee_id
+
+--ex23
+
+select e1.employee_id "Ang#", e1.last_name "Angajat", e2.last_name "Manager", e1.manager_id "Mgr#"
+from employees e1
+left join employees e2 on e1.manager_id=e2.employee_id
+
+--ex24
+
+select e.last_name "nume angajat", e.department_id "departament", e2.last_name "coleg"
+from employees e
+left join employees e2 on (e.department_id = e2.department_id) and (e.employee_id <> e2.employee_id)
+
+--ex25
+
+select e.last_name, j.job_id, j.job_title, d.department_name, e.salary
+from employees e
+left join jobs j on e.job_id = j.job_id
+join departments d on e.department_id = d.department_id
+
+--ex26
+
+select e.last_name, e.hire_date
+from employees e
+where hire_date > (select hire_date from employees where lower(last_name) like 'gates')
+
+--ex27
+
+select e.last_name "angajat", e.hire_date "data angajare", m.last_name "nume manager", m.hire_date "data angajare manager"
+from employees e
+left join employees m on e.manager_id=m.employee_id
+where e.hire_date < m.hire_date
+
+--lab3
+
+--ex1
+
+select e.last_name, to_char(e.hire_date, 'MONTH'), to_char(e.hire_date, 'yyyy')
+from employees e
+where e.department_id = (select department_id from employees where lower(last_name) like 'gates')  and (lower(e.last_name) <> 'gates') and (lower(e.last_name) like '%a%')
+
+--ex2
+
+select distinct e.employee_id, e.last_name, e.department_id, d.department_name
+from employees e, employees e2
+join departments d on e2.department_id= d.department_id
+where (e.department_id = e2.department_id) and (e2.last_name like '%t%')
+order by 2 asc
+
+--ex3
+
+select e.last_name, e.salary, j.job_title, l.city, l.country_id
+from employees e
+left join employees m on e.manager_id=m.employee_id
+join departments d on e.department_id=d.department_id
+join locations l on l.location_id=d.location_id
+join jobs j on j.job_id=e.job_id
+where lower(m.last_name) like 'king'
+
+--ex4
+
+select d.department_id, d.department_name, e.last_name, j.job_title, to_char(e.salary, '$99,999.00')
+from employees e
+join departments d on d.department_id=e.department_id
+join jobs j on j.job_id=e.job_id
+where e.last_name like '%ti%'
+order by d.department_name, e.last_name
+
+--ex5
+
+select e.last_name, d.department_id, d.department_name, l.city, e.job_id
+from employees e
+full join departments d on e.department_id=d.department_id
+full join locations l on l.location_id=d.location_id
+where lower(l.city) like 'oxford'
+
+--ex6
+
+select e.employee_id, e.last_name, e.salary
+from employees e
+inner join jobs j on j.job_id=e.job_id  and (e.salary >= ((j.min_salary + j.max_salary) / 2))
+inner join departments d on e.department_id=d.department_id
+where d.department_id in 
+(select d2.department_id from departments d2
+join employees e2 on d2.department_id=e2.department_id
+where lower(e2.last_name) like '%t%')
+
+--ex10
+
+select d.department_id
+from departments d
+where d.department_name like '%re%'
+union
+select department_id
+from employees
+where lower(job_id) like 'sa_rep'
+--rezultate este ordonat crescator dupa department_id
+
+--ex11
+
+select d.department_id
+from departments d
+where d.department_name like '%re%'
+union all
+select department_id
+from employees
+where lower(job_id) like 'sa_rep'
+--imi afiseaza si duplicatele
+
+--ex12
+
+select department_id
+from departments
+minus
+select d.department_id
+from departments d
+right join employees e on e.department_id=d.department_id
+
+--ex13
+
+select d.department_id
+from departments d
+where d.department_name like '%re%'
+intersect
+select department_id
+from employees
+where lower(job_id) like 'hr_rep'
+
+--ex14
+
+select e.employee_id, e.job_id, e.last_name
+from employees e
+where e.salary > 3000
+union
+select e.employee_id, e.job_id, e.last_name
+from employees e
+join jobs j on e.job_id=j.job_id
+where e.salary = ((j.max_salary+j.min_salary)/2)
+
+--ex15
+
+select last_name, hire_date
+from employees
+where hire_date <
+(select hire_date
+from employees
+where lower(last_name) = 'gates')
+
+--ex16
+
+select last_name, salary
+from employees
+where department_id =
+(select department_id
+from employees
+where lower(last_name) = 'gates') and lower(last_name) <> 'gates'
+
+--ex17
+
+select last_name,   salary
+from employees
+where manager_id in
+(select employee_id
+from employees
+where manager_id is null)
+
+--ex19
+
+select e.employee_id, e.last_name, e.salary
+from employees e
+inner join jobs j on j.job_id=e.job_id  and (e.salary >= ((j.min_salary + j.max_salary) / 2))
+inner join departments d on e.department_id=d.department_id
+where d.department_id in 
+(select d2.department_id from departments d2
+join employees e2 on d2.department_id=e2.department_id
+where lower(e2.last_name) like '%t%')
+
+--ex23
+
+select e.last_name, e.department_id, e.job_id
+from employees e
+join departments d on d.department_id=e.department_id
+where d.location_id in 
+(select location_id
+from locations
+where city = 'Toronto')
+
+
+
