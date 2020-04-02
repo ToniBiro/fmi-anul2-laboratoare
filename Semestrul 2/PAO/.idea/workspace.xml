@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98445108-c7f7-4616-88d1-01cdc2b81ed8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/curs4/src/imutabilitate/Adresa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab4/src/asociere/Departament.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab4/src/asociere/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab4/src/asociere/Profesor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab4/src/asociere/Universitate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab4/src/imutabilitate/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab4/src/imutabilitate/Persoana.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab4/src/imutabilitate/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IA/lab4/misionari_si_canibali.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IA/lab4/problema_8_puzzle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IA/lab4/problema_blocurilor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IA/lab6/problema_de_cautare_un_mesaj.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../IA/lab4/a_star_incomplet.py" beforeDir="false" afterPath="$PROJECT_DIR$/../IA/lab4/a_star_incomplet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab3/lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab4/src/lab4.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +158,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="921" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -177,6 +169,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,13 +223,13 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584601442621" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -295,9 +288,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="921" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25641027" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1264489" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />

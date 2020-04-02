@@ -204,7 +204,7 @@ def a_star():
 						if is_in_closed and is_in_closed.f > nod_curent.f + succesor[1]:
 							is_in_closed.parinte = nod_curent
 							is_in_closed.g = nod_curent.g + succesor[1]
-							is_in_closed.f = is_in_open.g + succesor[0].h
+							is_in_closed.f = is_in_closed.g + succesor[0].h
 							open.append(is_in_closed)
 							print(is_in_closed)
 							closed.remove(is_in_closed)

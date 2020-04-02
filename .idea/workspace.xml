@@ -2,34 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="822cafd7-f5ca-4f14-8c49-b6eb231dedeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/curs4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/asociere/Departament.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/asociere/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/asociere/Profesor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/asociere/Universitate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/imutabilitate/Adresa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/imutabilitate/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/imutabilitate/Persoana.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/curs4/src/imutabilitate/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/asociere/Departament.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/asociere/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/asociere/Profesor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/asociere/Universitate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/imutabilitate/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/imutabilitate/Persoana.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/imutabilitate/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/misionari_si_canibali.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/problema_8_puzzle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/problema_blocurilor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab6/problema_de_cautare_un_mesaj.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/out/production/pao2/test1/Test1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/pao2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/src/test1/Test1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestrul 2/PAO/lab3/lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/PAO/lab4/src/lab4.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,8 +43,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Semestrul 2/IA/lab6/problema_de_cautare_un_mesaj.py" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -57,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.problema_de_cautare_un_mesaj">
     <configuration name="a_star_incomplet" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="fmi-anul2-laboratoare" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,6 +81,101 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="misionari_si_canibali" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="fmi-anul2-laboratoare" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\toni\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Semestrul 2/IA/lab4/misionari_si_canibali.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="problema_8_puzzle" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="fmi-anul2-laboratoare" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\toni\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Semestrul 2/IA/lab4/problema_8_puzzle.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="problema_blocurilor" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="fmi-anul2-laboratoare" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\toni\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Semestrul 2/IA/lab4/problema_blocurilor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="problema_de_cautare_un_mesaj" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="fmi-anul2-laboratoare" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\toni\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Semestrul 2/IA/lab6" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Semestrul 2/IA/lab6/problema_de_cautare_un_mesaj.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.a_star_incomplet" />
+      <item itemvalue="Python.problema_blocurilor" />
+      <item itemvalue="Python.problema_8_puzzle" />
+      <item itemvalue="Python.misionari_si_canibali" />
+      <item itemvalue="Python.problema_de_cautare_un_mesaj" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -98,6 +194,16 @@
       <workItem from="1584625037403" duration="6000" />
       <workItem from="1584628577904" duration="36000" />
       <workItem from="1584785959766" duration="18784000" />
+      <workItem from="1584863442501" duration="43586000" />
+      <workItem from="1585036177126" duration="601000" />
+      <workItem from="1585132412472" duration="16000" />
+      <workItem from="1585162235796" duration="7175000" />
+      <workItem from="1585240265912" duration="52000" />
+      <workItem from="1585298502934" duration="4000" />
+      <workItem from="1585561309097" duration="600000" />
+      <workItem from="1585644943999" duration="21000" />
+      <workItem from="1585734233942" duration="12000" />
+      <workItem from="1585802897899" duration="5000" />
     </task>
     <servers />
   </component>
@@ -121,17 +227,17 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py</url>
-          <line>162</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="succesori[5]" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$a_star_incomplet.coverage" NAME="a_star_incomplet Coverage Results" MODIFIED="1584807629105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
+    <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$misionari_si_canibali.coverage" NAME="misionari_si_canibali Coverage Results" MODIFIED="1584915406524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
+    <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$problema_de_cautare_un_mesaj.coverage" NAME="problema_de_cautare_un_mesaj Coverage Results" MODIFIED="1585167746677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab6" />
+    <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$problema_8_puzzle.coverage" NAME="problema_8_puzzle Coverage Results" MODIFIED="1585166661682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
+    <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$problema_blocurilor.coverage" NAME="problema_blocurilor Coverage Results" MODIFIED="1584908476780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
+    <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$a_star_incomplet.coverage" NAME="a_star_incomplet Coverage Results" MODIFIED="1584905300155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
   </component>
 </project>
