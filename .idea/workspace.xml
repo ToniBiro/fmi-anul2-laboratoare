@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="822cafd7-f5ca-4f14-8c49-b6eb231dedeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/misionari_si_canibali.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/problema_8_puzzle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/problema_blocurilor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab6/problema_de_cautare_un_mesaj.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/out/production/pao2/test1/Test1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/pao2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Semestrul 2/pao2/src/test1/Test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab4/a_star_incomplet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/PAO/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="822cafd7-f5ca-4f14-8c49-b6eb231dedeb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,6 +187,7 @@
       <workItem from="1585644943999" duration="21000" />
       <workItem from="1585734233942" duration="12000" />
       <workItem from="1585802897899" duration="5000" />
+      <workItem from="1585820949121" duration="3000" />
     </task>
     <servers />
   </component>
