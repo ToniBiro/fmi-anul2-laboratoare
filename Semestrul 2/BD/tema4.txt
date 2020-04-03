@@ -23,10 +23,8 @@ group by job_id
 
 --ex5
 
-select manager_id
+select count(distinct(manager_id))
 from employees
-group by manager_id
-
 
 --ex6
 
