@@ -1,0 +1,209 @@
+--lab4
+
+--ex28
+
+select 
+(select count(*) from employees),
+(select count(*) from employees where to_char(hire_date, 'yyyy') = '1997') "1997",
+(select count(*) from employees where to_char(hire_date, 'yyyy') = '1998') "1998",
+(select count(*) from employees where to_char(hire_date, 'yyyy') = '1999') "1999",
+(select count(*) from employees where to_char(hire_date, 'yyyy') = '2000') "2000"
+--  where employee_id = e.employee_id and to_char(hire_date, 'yyyy') = '1997')
+from dual;
+
+--ex18
+--a)
+select d.department_id, d.department_name, count(e.employee_id)
+from employees e
+join departments d on e.department_id = d.department_id
+group by d.department_id, d.department_name
+having count(e.employee_id) < 4;
+
+--b)
+select d.department_id, d.department_name, count(e.employee_id)
+from employees e
+join departments d on e.department_id = d.department_id
+group by d.department_id, d.department_name
+having count(e.employee_id) = (select max(count(e1.employee_id))
+from employees e1
+join departments d1 on d1.department_id = e1.department_id
+group by d1.department_id);
+
+--ex19
+
+select employee_id
+from employees 
+where hire_date = 
+  (select hire_date from employees
+  group by hire_date having count(employee_id) = 
+    (select max(count(employee_id)) from employees
+    group by hire_date
+    ))
+  
+--ex20
+
+select count(count(d.department_id))
+from departments d
+join employees e on e.department_id = d.department_id
+group by d.department_id
+having count(d.department_id) >= 15
+
+--ex21
+
+select d.department_id, sum(e.salary), count(e.employee_id)
+from employees e
+join departments d on e.department_id = d.department_id
+group by d.department_id
+having count(e.employee_id) > 10 and d.department_id <> 30
+order by 2 asc
+
+--ex22
+
+select d.department_id, d.department_name, (select count(employee_id) from employees where department_id = d.department_id) "nr employees"
+, (select round(avg(salary)) from employees where department_id = d.department_id) "salariu mediu", e.last_name, e.salary, e.job_id
+from employees e
+full outer join departments d on d.department_id = e.department_id
+group by d.department_id, d.department_name, e.last_name, e.salary, e.job_id
+
+--ex23
+
+select d.department_id, e.job_id, sum(e.salary), l.city, d.department_name
+from employees e
+join departments d on d.department_id = e.department_id
+join locations l on d.location_id = l.location_id
+where d.department_id > 80
+group by d.department_id, e.job_id, l.city, d.department_name
+--having d.department_id > 80
+-- rezultatele sunt afisate in alta ordine
+
+
+--ex24
+
+select e.employee_id from job_history e
+where (select count(employee_id) from job_history where e.employee_id = employee_id) >=2
+
+--ex25
+
+select round(avg(commission_pct), 5) from employees
+
+--lab5
+
+--ex2
+
+select d.department_name, e.job_id, round(avg(e.salary)), grouping(d.department_name), grouping(e.job_id)
+from employees e
+join departments d on d.department_id = e.department_id
+group by cube(d.department_name, e.job_id)
+order by 1 asc
+
+--ex4
+
+select max(salary)
+from employees
+having max(salary) > 15000
+
+--ex5
+--a)
+select * from employees e
+where salary > 
+(select avg(salary) from employees
+where e.department_id = department_id)
+
+--b)
+select d.department_name,
+(select count(employee_id) from employees where e.department_id=department_id) "nr_emplyees",
+(select round(avg(salary)) from employees where e.department_id=department_id) "avg_salary"
+from departments d 
+join employees e on d.department_id = e.department_id
+
+
+select a.department_name, a.nr_employees, a.medie
+from (
+select department_name, count(employee_id) nr_employees, round(avg(salary)) medie
+from employees 
+join departments using (department_id)
+group by department_name
+) a
+
+
+--ex6
+
+select e.last_name, e.salary
+from employees e
+where e.salary > 
+(select max(avg(salary)) from employees
+join departments using (department_id)
+group by department_id)
+
+--ex7
+
+select a.department_name, e.last_name, a.minim
+from (
+select department_id, department_name, min(salary) minim
+from employees 
+join departments using (department_id)
+group by department_id, department_name
+)a
+join employees e on e.department_id = a.department_id
+
+--ex8
+
+select d.department_name, 
+(select e1.last_name, e1.hire_date, e1.department_id from employees e1 where e1.hire_date =
+  (select min(hire_date) from employees where e1.department_id = department_id group by department_id)
+)
+from employees e
+join departments d on d.department_id = e.department_id
+order by 1 asc
+
+
+select d.department_name, a.last_name, a.hire_date
+from
+(select last_name, department_id, hire_date
+from employees e1
+where hire_date = 
+(select min(hire_date) from employees where e1.department_id = department_id group by department_id)
+) a
+join departments d on (a.department_id = d.department_id);
+
+--ex9
+
+select last_name, department_id from employees
+where exists
+(  select department_id from employees
+  where salary =
+  (select max(salary) from employees e
+  join departments d on d.department_id = e.department_id
+  where e.department_id = 30)
+);
+
+--ex10
+
+select last_name, salary from employees
+where salary in
+(select salary from (
+  select salary from employees order by 1 desc
+)
+where rownum < 4
+)
+order by 2 asc
+
+--ex11
+
+select employee_id, first_name, last_name from employees e
+where (select count(employee_id) from employees where e.employee_id = manager_id) >= 2
+
+--ex12
+
+select location_id from locations l
+where exists
+(select department_id from departments
+where l.location_id = location_id)
+
+--ex13
+
+select department_id from departments d
+where not exists
+(select employee_id from employees 
+where department_id = d.department_id)
+
