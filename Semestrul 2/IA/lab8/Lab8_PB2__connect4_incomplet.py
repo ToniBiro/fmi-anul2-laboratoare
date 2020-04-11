@@ -118,13 +118,10 @@ class Joc:
 
         return rez
 
-
     def fct_euristica(self):
         # intervale_deschisa(juc) = cate intervale de 4 pozitii
         # (pe linii, coloane, diagonale) nu contin juc_opus
         return self.nr_intervale_deschise(Joc.JMAX) - self.nr_intervale_deschise(Joc.JMIN)
-
-
 
     def estimeaza_scor(self, adancime):
         t_final = self.final()
@@ -136,7 +133,6 @@ class Joc:
             return 0
         else:
             return self.fct_euristica()
-
 
     def __str__(self):
         sir = ''
@@ -190,14 +186,13 @@ class Stare:
 
         return l_stari_mutari
 
-
     def __str__(self):
-        sir= str(self.tabla_joc) + "(Juc curent: "+self.j_curent+")\n"
+        sir = str(self.tabla_joc) + "(Juc curent: "+self.j_curent+")\n"
         return sir
 
 
-
 """ Algoritmul MinMax """
+
 
 def min_max(stare):
 
@@ -342,14 +337,14 @@ def main():
 
                     if coloana in [i for i in range(0, Joc.NR_COLOANE)]:
                         # gasit linie
-                        for i in range(Joc.NR_LINII-1, 0, -1):
+                        for i in range(Joc.NR_LINII-1, -1, -1):
                             if stare_curenta.tabla_joc.matr[7*i+coloana] == Joc.GOL:
                                 linie = i
                                 print(f"linia este: {linie}")
                                 check_line = 1
                                 raspuns_valid = True
                                 break
-                        if linie >= Joc.NR_LINII or check_line == 0:
+                        if check_line == 0:
                            print("Toata coloana este ocupata.")
                     else:
                        print("Coloana invalida (trebuie sa fie un numar intre 0 si {}).".format(Joc.NR_COLOANE - 1))

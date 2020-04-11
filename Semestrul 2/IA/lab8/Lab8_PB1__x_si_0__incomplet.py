@@ -308,7 +308,7 @@ def main():
 	print(str(tabla_curenta))
 	
 	# creare stare initiala
-	stare_curenta=Stare(tabla_curenta,'x',Stare.ADANCIME_MAX)
+	stare_curenta=Stare(tabla_curenta, 'x', Stare.ADANCIME_MAX)
 
 	while True:
 		if stare_curenta.j_curent == Joc.JMIN:
@@ -371,6 +371,7 @@ def main():
 				
 			# S-a realizat o mutare. Schimb jucatorul cu cel opus
 			stare_curenta.j_curent=stare_curenta.jucator_opus()
+
 
 if __name__ == "__main__" :
 	main()
