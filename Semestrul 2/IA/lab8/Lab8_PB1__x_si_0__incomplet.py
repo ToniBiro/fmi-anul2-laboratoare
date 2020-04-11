@@ -11,9 +11,9 @@ def elem_identice(lista):
 		castigator = list(mt)[0]
 		if castigator != Joc.GOL:
 			return castigator
-		else :
+		else:
 			return False
-	else :
+	else:
 		return False
 
 
@@ -26,10 +26,10 @@ class Joc:
 	JMIN = None
 	JMAX = None
 	GOL = '#'
+
 	def __init__(self, tabla=None):
 		self.matr = tabla or [Joc.GOL]*9
 
-		
 	def final(self):
 		# Folosim slice-uri pe lista de 9 elemente
 		# pentru a gasi usor cele 3 linii, 3 coloane si 2 diagonale
@@ -61,19 +61,15 @@ class Joc:
 		"""
 		l_mutari = []
 
-		### TO DO ...
-
 		for idx, casuta in enumerate(self.matr):
 			if casuta == Joc.GOL:
 				matr_aux = self.matr.copy()
 				matr_aux[idx] = jucator
 				l_mutari.append(Joc(matr_aux)) 
 
-
 		return l_mutari
-	
 
-	#linie deschisa inseamna linie pe care jucatorul mai poate forma o configuratie castigatoare
+	# linie deschisa inseamna linie pe care jucatorul mai poate forma o configuratie castigatoare
 	def linie_deschisa(self,lista, jucator):
 		"""
 		# rezolvare alternativa:
@@ -83,19 +79,18 @@ class Joc:
 		return 1
 		"""
 
-		#obtin multimea simbolurilor de pe linie
+		# obtin multimea simbolurilor de pe linie
 		mt = set(lista)
-		#verific daca sunt maxim 2 simboluri
+		# verific daca sunt maxim 2 simboluri
 		if len(mt) <= 2:
-			#daca multimea simbolurilor nu are alte simboluri decat pentru cel de "gol" si jucatorul curent
+			# daca multimea simbolurilor nu are alte simboluri decat pentru cel de "gol" si jucatorul curent
 			if mt <= {Joc.GOL, jucator}: # incluziune de seturi
-				#inseamna ca linia este deschisa
+				# inseamna ca linia este deschisa
 				return 1
-			else :
+			else:
 				return 0
-		else :
+		else:
 			return 0
-
 
 	def linii_deschise(self, jucator):
 		return (self.linie_deschisa(self.matr[0:3],jucator) 
@@ -104,10 +99,9 @@ class Joc:
 			+ self.linie_deschisa(self.matr[0:9:3], jucator)
 			+ self.linie_deschisa(self.matr[1:9:3], jucator)
 			+ self.linie_deschisa(self.matr[2:9:3], jucator)
-			+ self.linie_deschisa(self.matr[0:9:4], jucator) #prima diagonala
+			+ self.linie_deschisa(self.matr[0:9:4], jucator) # prima diagonala
 			+ self.linie_deschisa(self.matr[2:8:2], jucator)) # a doua diagonala
-			
-		
+
 	def estimeaza_scor(self, adancime):
 		t_final = self.final()
 		if t_final == Joc.JMAX :
@@ -118,14 +112,12 @@ class Joc:
 			return 0
 		else:
 			return self.linii_deschise(Joc.JMAX) - self.linii_deschise(Joc.JMIN)
-			
-
 
 	def __str__(self):
 		sir= (" ".join([str(x) for x in self.matr[0:3]])+"\n"+
 		" ".join([str(x) for x in self.matr[3:6]])+"\n"+
 		" ".join([str(x) for x in self.matr[6:9]])+"\n")
- 
+
 		return sir
 			
 
@@ -145,7 +137,7 @@ class Stare:
 		self.j_curent = j_curent  # simbolul jucatorului curent
 
 		# adancimea in arborele de stari
-		#	(scade cu cate o unitate din „tata” in „fiu”)
+		# (scade cu cate o unitate din „tata” in „fiu”)
 		self.adancime = adancime
 
 		# scorul starii (daca e finala, adica frunza a arborelui)
@@ -157,7 +149,6 @@ class Stare:
 
 		# cea mai buna mutare din lista de mutari posibile pentru jucatorul curent
 		self.stare_aleasa = None
-
 
 	def jucator_opus(self):
 		if self.j_curent == Joc.JMIN:
@@ -171,42 +162,40 @@ class Stare:
 
 		l_stari_mutari = [Stare(mutare, juc_opus, self.adancime-1, parinte=self) for mutare in l_mutari]
 		return l_stari_mutari
-		
-	
+
 	def __str__(self):
 		sir = str(self.tabla_joc) + "(Juc curent:" + self.j_curent+")\n"
 		return sir
-	
 
-			
+
 """ Algoritmul MinMax """
+
 
 def min_max(stare):
 
 	# Daca am ajuns la o frunza a arborelui, adica:
 	# - daca am expandat arborele pana la adancimea maxima permisa
 	# - sau daca am ajuns intr-o configuratie finala de joc
-	if stare.adancime==0 or stare.tabla_joc.final() :
+	if stare.adancime == 0 or stare.tabla_joc.final():
 		# calculam scorul frunzei apeland "estimeaza_scor"
 		stare.scor=stare.tabla_joc.estimeaza_scor(stare.adancime)
 		return stare
 		
-	#Altfel, calculez toate mutarile posibile din starea curenta
-	stare.mutari_posibile=stare.mutari_stare()
+	# Altfel, calculez toate mutarile posibile din starea curenta
+	stare.mutari_posibile = stare.mutari_stare()
 
-	#aplic algoritmul minimax pe toate mutarile posibile (calculand astfel subarborii lor)
-	mutari_scor=[min_max(mutare) for mutare in stare.mutari_posibile]
-	
+	# aplic algoritmul minimax pe toate mutarile posibile (calculand astfel subarborii lor)
+	mutari_scor = [min_max(mutare) for mutare in stare.mutari_posibile]
 
-	if stare.j_curent==Joc.JMAX :
-		#daca jucatorul e JMAX aleg starea-fiica cu scorul maxim
-		stare.stare_aleasa=max(mutari_scor, key=lambda x: x.scor)
+	if stare.j_curent == Joc.JMAX:
+		# daca jucatorul e JMAX aleg starea-fiica cu scorul maxim
+		stare.stare_aleasa = max(mutari_scor, key=lambda x: x.scor)
 	else:
-		#daca jucatorul e JMIN aleg starea-fiica cu scorul minim
-		stare.stare_aleasa=min(mutari_scor, key=lambda x: x.scor)
+		# daca jucatorul e JMIN aleg starea-fiica cu scorul minim
+		stare.stare_aleasa = min(mutari_scor, key=lambda x: x.scor)
 
 	# actualizez scorul „tatalui” = scorul „fiului” ales
-	stare.scor=stare.stare_aleasa.scor
+	stare.scor = stare.stare_aleasa.scor
 	return stare
 
 
@@ -281,16 +270,15 @@ def afis_daca_final(stare_curenta):
 		return True
 		
 	return False
-		
-	
+
 
 def main():
-	#initializare algoritm
+	# initializare algoritm
 	raspuns_valid=False
 	while not raspuns_valid:
-		tip_algoritm=input("Algorimul folosit? (raspundeti cu 1 sau 2)\n 1.Minimax\n 2.Alpha-Beta\n ")
-		if tip_algoritm in ['1','2']:
-			raspuns_valid=True
+		tip_algoritm = input("Algorimul folosit? (raspundeti cu 1 sau 2)\n 1.Minimax\n 2.Alpha-Beta\n ")
+		if tip_algoritm in ['1', '2']:
+			raspuns_valid = True
 		else:
 			print("Nu ati ales o varianta corecta.")
 
@@ -304,35 +292,34 @@ def main():
 		else:
 			print("Trebuie sa introduceti un numar natural nenul.")
 
-	#initializare jucatori
+	# initializare jucatori
 	raspuns_valid=False
 	while not raspuns_valid:
-		Joc.JMIN=input("Doriti sa jucati cu x sau cu 0? ").lower()
-		if (Joc.JMIN in ['x', '0']):
-			raspuns_valid=True
+		Joc.JMIN = input("Doriti sa jucati cu x sau cu 0? ").lower()
+		if Joc.JMIN in ['x', '0']:
+			raspuns_valid = True
 		else:
 			print("Raspunsul trebuie sa fie x sau 0.")
 	Joc.JMAX= '0' if Joc.JMIN == 'x' else 'x'
-	
-	
-	#initializare tabla
+
+	# initializare tabla
 	tabla_curenta=Joc()
 	print("Tabla initiala")
 	print(str(tabla_curenta))
 	
-	#creare stare initiala
+	# creare stare initiala
 	stare_curenta=Stare(tabla_curenta,'x',Stare.ADANCIME_MAX)
 
-	while True :
-		if (stare_curenta.j_curent==Joc.JMIN):
-		#muta jucatorul
-			raspuns_valid=False
+	while True:
+		if stare_curenta.j_curent == Joc.JMIN:
+			# muta jucatorul
+			raspuns_valid = False
 			while not raspuns_valid:
 				try:
 					linie=int(input("linie="))
 					coloana=int(input("coloana="))
 				
-					if (linie in range(0,3) and coloana in range(0,3)):
+					if linie in range(0,3) and coloana in range(0,3):
 						if stare_curenta.tabla_joc.matr[linie*3+coloana] == Joc.GOL:					
 							raspuns_valid=True
 						else:
@@ -343,46 +330,47 @@ def main():
 				except ValueError:
 					print("Linia si coloana trebuie sa fie numere intregi")
 					
-			#dupa iesirea din while sigur am valide atat linia cat si coloana
-			#deci pot plasa simbolul pe "tabla de joc"
-			stare_curenta.tabla_joc.matr[linie*3+coloana]=Joc.JMIN
+			# dupa iesirea din while sigur am valide atat linia cat si coloana
+			# deci pot plasa simbolul pe "tabla de joc"
+			stare_curenta.tabla_joc.matr[linie * 3 + coloana] = Joc.JMIN
 			
-			#afisarea starii jocului in urma mutarii utilizatorului
+			# afisarea starii jocului in urma mutarii utilizatorului
 			print("\nTabla dupa mutarea jucatorului")
 			print(str(stare_curenta))
 
-			#testez daca jocul a ajuns intr-o stare finala
-			#si afisez un mesaj corespunzator in caz ca da
-			if (afis_daca_final(stare_curenta)):
+			# testez daca jocul a ajuns intr-o stare finala
+			# si afisez un mesaj corespunzator in caz ca da
+			if afis_daca_final(stare_curenta):
 				break
-				
-				
-			#S-a realizat o mutare. Schimb jucatorul cu cel opus
+
+			# S-a realizat o mutare. Schimb jucatorul cu cel opus
 			stare_curenta.j_curent=stare_curenta.jucator_opus()
 		
-		#--------------------------------
-		else: #jucatorul e JMAX (calculatorul)
-			#Mutare calculator
+		# --------------------------------
+		else: # jucatorul e JMAX (calculatorul)
+			# Mutare calculator
 			
-			#preiau timpul in milisecunde de dinainte de mutare
+			# preiau timpul in milisecunde de dinainte de mutare
 			t_inainte=int(round(time.time() * 1000))
-			if tip_algoritm=='1':
+			if tip_algoritm == '1':
 				stare_actualizata=min_max(stare_curenta)
-			else: #tip_algoritm==2
+			else:  # tip_algoritm==2
 				stare_actualizata=alpha_beta(-500, 500, stare_curenta)
-			stare_curenta.tabla_joc=stare_actualizata.stare_aleasa.tabla_joc
+
+			stare_curenta.tabla_joc = stare_actualizata.stare_aleasa.tabla_joc
+
 			print("Tabla dupa mutarea calculatorului")
 			print(str(stare_curenta))
 			
-			#preiau timpul in milisecunde de dupa mutare
+			# preiau timpul in milisecunde de dupa mutare
 			t_dupa=int(round(time.time() * 1000))
 			print("Calculatorul a \"gandit\" timp de "+str(t_dupa-t_inainte)+" milisecunde.")
 			
 			if (afis_daca_final(stare_curenta)):
 				break
 				
-			#S-a realizat o mutare. Schimb jucatorul cu cel opus
+			# S-a realizat o mutare. Schimb jucatorul cu cel opus
 			stare_curenta.j_curent=stare_curenta.jucator_opus()
-	
+
 if __name__ == "__main__" :
 	main()
