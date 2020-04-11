@@ -24,20 +24,36 @@ class Joc:
         rez = False
 
         # verificam linii
-        # TO DO ..........
-        pass
-
+        for i in range(6):
+            for j in range(4):
+                if self.matr[7*i+j:7*i+j+5] == [Joc.SIMBOLURI_JUC[0]]*4:
+                    return Joc.SIMBOLURI_JUC[0]
+                if self.matr[7*i+j:7*i+j+5] == [Joc.SIMBOLURI_JUC[1]]*4:
+                    return Joc.SIMBOLURI_JUC[1]
+                    
         # verificam coloane
-        # T0 DO ..........
-        pass
+        for i in range(7):
+            for j in range(3):
+                if self.matr[i+(7*j):i+(7*j)+22:7] == [Joc.SIMBOLURI_JUC[0]]*4:
+                    return Joc.SIMBOLURI_JUC[0]
+                if self.matr[i+(7*j):i+(7*j)+22:7] == [Joc.SIMBOLURI_JUC[1]]*4:
+                    return Joc.SIMBOLURI_JUC[1]
 
         # verificam diagonale \
-        # TO DO..........
-        pass
+        for i in range(3):
+            for j in range(4):
+                if self.matr[7*i+j:7*i+j+25:8] == [Joc.SIMBOLURI_JUC[0]]*4:
+                    return Joc.SIMBOLURI_JUC[0]
+                if self.matr[7*i+j:7*i+j+25:8] == [Joc.SIMBOLURI_JUC[1]]*4:
+                    return Joc.SIMBOLURI_JUC[1]
 
         # verificam diagonale /
-        # TO DO..........
-        pass
+        for i in range(3):
+            for j in range(4):
+                if self.matr[7*i+j+3:7*i+j+22:6] == [Joc.SIMBOLURI_JUC[0]]*4:
+                    return Joc.SIMBOLURI_JUC[0]
+                if self.matr[7*i+j+3:7*i+j+22:6] == [Joc.SIMBOLURI_JUC[1]]*4:
+                    return Joc.SIMBOLURI_JUC[1]
 
         if rez==False  and  Joc.GOL not in self.matr:
             return 'remiza'
@@ -54,8 +70,17 @@ class Joc:
         # .... "jucator_opus" (parametrul functiei) adauga o mutare in "matr_tabla_noua"
         # l_mutari.append(Joc(matr_tabla_noua))
 
-        pass # completati....
-
+        for i in range(5, 0, -1):
+            for casuta in range(i*7, i*7+7):
+                matr_tabla_noua = self.matr.copy()
+                if i == 5:
+                    if matr_tabla_noua[casuta] == Joc.GOL:
+                        matr_tabla_noua[casuta] = jucator_opus
+                        l_mutari.append(Joc(matr_tabla_noua))
+                else:
+                    if matr_tabla_noua[casuta] == Joc.GOL and matr_tabla_noua[casuta+7] != Joc.GOL:
+                        matr_tabla_noua[casuta] = jucator_opus
+                        l_mutari.append(Joc(matr_tabla_noua))
 
         return l_mutari
 
@@ -68,23 +93,33 @@ class Joc:
         rez = 0
 
         # linii
-        # TO DO.....
+        for i in range(6):
+            for j in range(4):
+                if juc_opus not in self.matr[7*i+j:7*i+j+5] and jucator in self.matr[7*i+j:7*i+j+5]:
+                    rez += 1
 
         # coloane
-        # TO DO.....
+        for i in range(7):
+            for j in range(3):
+                if juc_opus not in self.matr[i+(7*j):i+(7*j)+22:7] and jucator in self.matr[i+(7*j):i+(7*j)+22:7]:
+                    rez += 1
 
         # diagonale \
-        # TO DO.....
+        for i in range(3):
+            for j in range(4):
+                if juc_opus not in self.matr[7*i+j:7*i+j+25:8] and jucator in self.matr[7*i+j:7*i+j+25:8]:
+                    rez += 1
 
         # diagonale /
-        # TO DO.....
+        for i in range(3):
+            for j in range(4):
+                if juc_opus not in self.matr[7*i+j+3:7*i+j+19:6] and jucator in self.matr[7*i+j+3:7*i+j+22:6]:
+                    rez += 1
 
         return rez
 
 
     def fct_euristica(self):
-        # TO DO: alte variante de euristici? .....
-
         # intervale_deschisa(juc) = cate intervale de 4 pozitii
         # (pe linii, coloane, diagonale) nu contin juc_opus
         return self.nr_intervale_deschise(Joc.JMAX) - self.nr_intervale_deschise(Joc.JMIN)
@@ -235,9 +270,6 @@ def alpha_beta(alpha, beta, stare):
 
 
 def afis_daca_final(stare_curenta):
-    # ?? TO DO:
-    # de adagat parametru "pozitie", ca sa nu verifice mereu toata tabla,
-    # ci doar linia, coloana, 2 diagonale pt elementul nou, de pe "pozitie"
 
     final = stare_curenta.tabla_joc.final()
     if(final):
@@ -306,14 +338,21 @@ def main():
                     # de verificat daca "coloana" este in intervalul corect,
                     # apoi de gasit pe ce "linie" este cea mai de jos
                     # casuta goala de pe acea "coloana"
+                    check_line = 0
 
-                    #if ........
-                        # ..........
-
-                        #if ......
-                        #    print("Toata coloana este ocupata.")
-                    #else:
-                    #    print("Coloana invalida (trebuie sa fie un numar intre 0 si {}).".format(Joc.NR_COLOANE - 1))
+                    if coloana in [i for i in range(0, Joc.NR_COLOANE)]:
+                        # gasit linie
+                        for i in range(Joc.NR_LINII-1, 0, -1):
+                            if stare_curenta.tabla_joc.matr[7*i+coloana] == Joc.GOL:
+                                linie = i
+                                print(f"linia este: {linie}")
+                                check_line = 1
+                                raspuns_valid = True
+                                break
+                        if linie >= Joc.NR_LINII or check_line == 0:
+                           print("Toata coloana este ocupata.")
+                    else:
+                       print("Coloana invalida (trebuie sa fie un numar intre 0 si {}).".format(Joc.NR_COLOANE - 1))
 
                 except ValueError:
                     print("Coloana trebuie sa fie un numar intreg.")
