@@ -63,6 +63,12 @@ class Joc:
 
 		### TO DO ...
 
+		for idx, casuta in enumerate(self.matr):
+			if casuta == Joc.GOL:
+				matr_aux = self.matr.copy()
+				matr_aux[idx] = jucator
+				l_mutari.append(Joc(matr_aux)) 
+
 
 		return l_mutari
 	
