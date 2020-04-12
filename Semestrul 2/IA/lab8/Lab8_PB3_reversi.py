@@ -1,4 +1,5 @@
 import time
+from copy import copy, deepcopy
 
 
 class Joc:
@@ -17,45 +18,199 @@ class Joc:
             self.matr = tabla
         else:
             self.matr = [[Joc.GOL for j in range(Joc.NR_LINII)] for i in range(Joc.NR_COLOANE)]
-            self.matr[3][3] = 'N'
-            self.matr[4][4] = 'N'
-            self.matr[4][3] = 'A'
-            self.matr[3][4] = 'A'
+            self.matr[3][3] = 'A'
+            self.matr[4][4] = 'A'
+            self.matr[4][3] = 'N'
+            self.matr[3][4] = 'N'
 
-    def final(self):
-        # returnam simbolul jucatorului castigator sau 'False' daca nu s-a terminat jocul
-        rez = False
-
-
-
-        # To DO...
-
-        if rez == False and Joc.GOL not in self.matr:
-            return 'remiza'
-        else:
-            return False
-
-    def mutari(self, jucator_opus):
+    def mutari(self, jucator):
         l_mutari = []
+        l_pozitii = []
 
         # TO DO..........
-        #
-
-
-        return l_mutari
-
-    def nr_intervale_deschise(self, jucator):
-        # nr pozitii posibile
+        # returneaza o lista cu toate mutarile posibile (obiecte de tip tabla_joc)
+        # cautam pe toata tabla un Joc.GOL, daca gasim ne uitam pe linie, coloana, diagonala dupa o piesa a juc_curent
+        # daca gasim, schimbam culoara pieselor adversare corespunzatoare si adaugam configuratia in lista
 
         juc_opus = Joc.JMIN if jucator == Joc.JMAX else Joc.JMAX
+
+        for i in range(Joc.NR_LINII):
+            for j in range(Joc.NR_COLOANE):
+                check1 = check2 = check3 = check4 = check5 = check6 = check7 = check8 = 0
+                if self.matr[i][j] == Joc.GOL:
+                    matr_aux = deepcopy(self.matr)
+
+                    # linii, coloane
+                    if i != 0 and self.matr[i-1][j] == juc_opus:  # verifica vecini sus
+                        for k in range(i-1, -1, -1):
+                            if matr_aux[k][j] == jucator:
+                                check1 = 1
+                            elif matr_aux[k][j] == Joc.GOL:
+                                break
+                        if check1 == 1:
+                            for k in range(i-1, -1, -1):
+                                if matr_aux[k][j] == juc_opus:
+                                    matr_aux[k][j] = jucator
+                                elif matr_aux[k][j] == jucator:
+                                    break
+
+                    if j != 0 and self.matr[i][j-1] == juc_opus:   # verifica vecini stanga
+                        for k in range(j-1, -1, -1):
+                            if matr_aux[i][k] == jucator:
+                                check2 = 1
+                            elif matr_aux[i][k] == Joc.GOL:
+                                break
+                        if check2 == 1:
+                            for k in range(j-1, -1, -1):
+                                if matr_aux[i][k] == juc_opus:
+                                    matr_aux[i][k] = jucator
+                                elif matr_aux[i][k] == jucator:
+                                    break
+                        
+                    if i != Joc.NR_LINII-1 and self.matr[i+1][j] == juc_opus:   # verifica vecini jos
+                        for k in range(i+1, Joc.NR_LINII):
+                            if matr_aux[k][j] == jucator:
+                                check3 = 1
+                            elif matr_aux[k][j] == Joc.GOL:
+                                break
+                        if check3 == 1:
+                            for k in range(i+1, Joc.NR_LINII):
+                                if matr_aux[k][j] == juc_opus:
+                                    matr_aux[k][j] = jucator
+                                elif matr_aux[k][j] == jucator:
+                                    break
+
+                    if j != Joc.NR_COLOANE-1 and self.matr[i][j+1] == juc_opus:   # verifica vecini dreapta
+                        for k in range(j+1, Joc.NR_COLOANE):
+                            if matr_aux[i][k] == jucator:
+                                check4 = 1
+                            elif matr_aux[i][k] == Joc.GOL:
+                                break
+                        if check4 == 1:
+                            for k in range(j+1, Joc.NR_COLOANE):
+                                if matr_aux[i][k] == juc_opus:
+                                    matr_aux[i][k] = jucator
+                                elif matr_aux[i][k] == jucator:
+                                    break
+
+                    # diagonale
+                    if i != 0 and j != 0 and self.matr[i-1][j-1] == juc_opus:   # verifica vecini colt sus stanga
+                        for k in range(1, Joc.NR_COLOANE):
+                            if i-k > 0 and j-k > 0:
+                                if matr_aux[i-k][j-k] == jucator:
+                                    check5 = 1
+                                elif matr_aux[i-k][j-k] == Joc.GOL:
+                                    break
+                            else:
+                                break
+                        if check5 == 1:
+                            for k in range(1, Joc.NR_COLOANE):
+                                if i-k > 0 and j-k > 0:
+                                    if matr_aux[i-k][j-k] == juc_opus:
+                                        matr_aux[i-k][j-k] = jucator
+                                    elif matr_aux[i-k][j-k] == jucator:
+                                        break
+
+                    if i != 0 and j != Joc.NR_COLOANE-1 and self.matr[i-1][j+1] == juc_opus:   # verifica vecini colt sus dreapta
+                        for k in range(1, Joc.NR_COLOANE):
+                            if i-k > 0 and j+k < Joc.NR_COLOANE-1:
+                                if matr_aux[i-k][j+k] == jucator:
+                                    check6 = 1
+                                elif matr_aux[i-k][j+k] == Joc.GOL:
+                                    break
+                            else:
+                                break
+                        if check6 == 1:
+                            for k in range(1, Joc.NR_COLOANE):
+                                if i-k > 0 and j+k < Joc.NR_COLOANE-1:
+                                    if matr_aux[i-k][j+k] == juc_opus:
+                                        matr_aux[i-k][j+k] = jucator
+                                    elif matr_aux[i-k][j+k] == jucator:
+                                        break
+
+                    if i != Joc.NR_LINII-1 and j != Joc.NR_COLOANE-1 and self.matr[i+1][j+1] == juc_opus:   # verifica vecini colt jos dreapta
+                        for k in range(1, Joc.NR_COLOANE):
+                            if i+k < Joc.NR_LINII-1 and j+k < Joc.NR_COLOANE-1:
+                                if matr_aux[i+k][j+k] == jucator:
+                                    check7 = 1
+                                elif matr_aux[i+k][j+k] == Joc.GOL:
+                                    break
+                            else:
+                                break
+                        if check7 == 1:
+                            for k in range(1, Joc.NR_COLOANE):
+                                if i+k < Joc.NR_LINII-1 and j+k < Joc.NR_COLOANE-1:
+                                    if matr_aux[i+k][j+k] == juc_opus:
+                                        matr_aux[i+k][j+k] = jucator
+                                    elif matr_aux[i+k][j+k] == jucator:
+                                        break
+
+                    if i != Joc.NR_LINII-1 and j != 0 and self.matr[i+1][j-1] == juc_opus:   # verifica vecini colt jos stanga
+                        for k in range(1, Joc.NR_COLOANE):
+                            if i+k < Joc.NR_LINII-1 and j-k > 0:
+                                if matr_aux[i+k][j-k] == jucator:
+                                    check8 = 1
+                                elif matr_aux[i+k][j-k] == Joc.GOL:
+                                    break
+                            else:
+                                break
+                        if check8 == 1:
+                            for k in range(1, Joc.NR_COLOANE):
+                                if i+k < Joc.NR_LINII-1 and j-k > 0:
+                                    if matr_aux[i+k][j-k] == juc_opus:
+                                        matr_aux[i+k][j-k] = jucator
+                                    elif matr_aux[i+k][j-k] == jucator:
+                                        break
+
+                if check1 + check2 + check3 + check4 + check5 + check6 + check7 + check8 > 0:
+                    matr_aux[i][j] = jucator
+                    l_pozitii.append([i, j])
+                    l_mutari.append(Joc(matr_aux))                  
+                        
+
+        return l_mutari, l_pozitii
+
+    def nr_piese_pe_tabla(self, jucator):
+        # ne uitam cate piese sunt din culoarea jucatorului
         rez = 0
+
+        for i in range(Joc.NR_LINII):
+            for j in range(Joc.NR_COLOANE):
+                if self.matr[i][j] == jucator:
+                    rez += 1
 
         return rez
 
-    def fct_euristica(self):
-        # intervale_deschisa(juc) = cate intervale de 4 pozitii
-        # (pe linii, coloane, diagonale) nu contin juc_opus
-        return self.nr_intervale_deschise(Joc.JMAX) - self.nr_intervale_deschise(Joc.JMIN)
+    def final(self):
+        # returnam simbolul jucatorului castigator sau 'False' daca nu s-a terminat jocul
+        # ne uitam daca e vreun jucator care in configuratia curenta nu mai poate face nici o mutare
+        # sau nu mai sunt locuri libere pe tabla
+
+        mutari_min, b = self.mutari(Joc.JMIN)
+        mutari_max, d = self.mutari(Joc.JMAX)
+
+        if len(mutari_min) == 0 or len(mutari_max) == 0:
+            if self.nr_piese_pe_tabla(Joc.JMIN) > self.nr_piese_pe_tabla(Joc.JMAX):
+                return Joc.JMIN
+            elif self.nr_piese_pe_tabla(Joc.JMIN) < self.nr_piese_pe_tabla(Joc.JMAX):
+                return Joc.JMAX
+            else:
+                return 'remiza'
+
+        check = 0
+        for elem in self.matr:
+            if Joc.GOL in elem:
+                check = 1
+                break
+        if check == 0:
+            if self.nr_piese_pe_tabla(Joc.JMIN) > self.nr_piese_pe_tabla(Joc.JMAX):
+                return Joc.JMIN
+            elif self.nr_piese_pe_tabla(Joc.JMIN) < self.nr_piese_pe_tabla(Joc.JMAX):
+                return Joc.JMAX
+            else:
+                return 'remiza'
+
+        return False
 
     def estimeaza_scor(self, adancime):
         t_final = self.final()
@@ -68,6 +223,10 @@ class Joc:
         else:
             return self.fct_euristica()
 
+    def fct_euristica(self):
+        # diferenta dintre nr de piese negre si cele albe de pe tabla in configuratia curenta
+        return self.nr_piese_pe_tabla(Joc.JMAX) - self.nr_piese_pe_tabla(Joc.JMIN)
+
     def __str__(self):
         sir = ''
 
@@ -76,13 +235,6 @@ class Joc:
                 sir = sir + self.matr[i][j] + ' '
             sir += "\n"
 
-        # for nr_col in range(self.NR_COLOANE):
-        #     sir += str(nr_col) + ' '
-        # sir += '\n'
-        #
-        # for lin in range(self.NR_LINII):
-        #     k = lin * self.NR_COLOANE
-        #     sir += (" ".join([str(x) for x in self.matr[k: k + self.NR_COLOANE]]) + "\n")
         return sir
 
 
@@ -120,14 +272,14 @@ class Stare:
             return Joc.JMIN
 
     def mutari(self):
-        l_mutari = self.tabla_joc.mutari(self.j_curent)
+        l_mutari, aux = self.tabla_joc.mutari(self.j_curent)
         juc_opus = self.jucator_opus()
         l_stari_mutari = [Stare(mutare, juc_opus, self.adancime - 1, parinte=self) for mutare in l_mutari]
 
         return l_stari_mutari
 
     def __str__(self):
-        sir = str(self.tabla_joc) + "(Juc curent: " + self.j_curent + ")\n"
+        sir = str(self.tabla_joc) + "(Jucator curent: " + self.j_curent + ")\n"
         return sir
 
 
@@ -203,6 +355,7 @@ def alpha_beta(alpha, beta, stare):
 
 def afis_daca_final(stare_curenta):
     final = stare_curenta.tabla_joc.final()
+    print(f"in afis final: {final}")
     if (final):
         if (final == "remiza"):
             print("Remiza!")
@@ -250,8 +403,8 @@ def main():
     tabla = [['#', '#', '#', '#', '#', '#', '#', '#'],
              ['#', '#', '#', '#', '#', '#', '#', '#'],
              ['#', '#', '#', '#', '#', '#', '#', '#'],
-             ['#', '#', '#', 'N', 'A', '#', '#', '#'],
              ['#', '#', '#', 'A', 'N', '#', '#', '#'],
+             ['#', '#', '#', 'N', 'A', '#', '#', '#'],
              ['#', '#', '#', '#', '#', '#', '#', '#'],
              ['#', '#', '#', '#', '#', '#', '#', '#'],
              ['#', '#', '#', '#', '#', '#', '#', '#']]
@@ -262,44 +415,39 @@ def main():
 
     # creare stare initiala
     stare_curenta = Stare(tabla_curenta, 'N', Stare.ADANCIME_MAX)
+    print(type(stare_curenta))
 
-    linie = -1
-    coloana = -1
     while True:
         if (stare_curenta.j_curent == Joc.JMIN):
             # muta jucatorul
             raspuns_valid = False
             while not raspuns_valid:
                 try:
+
+                    mutari_valide, pozitii_valide = stare_curenta.tabla_joc.mutari(stare_curenta.j_curent)
+                    print("Pozitii valide:")
+                    for elem in pozitii_valide:
+                        print(elem)
+
+                    linie = int(input("linie = "))
                     coloana = int(input("coloana = "))
 
-                    # TO DO......
-                    # de verificat daca "coloana" este in intervalul corect,
-                    # apoi de gasit pe ce "linie" este cea mai de jos
-                    # casuta goala de pe acea "coloana"
-                    check_line = 0
+                    # de verificat daca "coloana" si "linie" sunt in intervalul corect,
+                    # si daca e valida pozitia
 
-                    if coloana in [i for i in range(0, Joc.NR_COLOANE)]:
-                        # gasit linie
-                        for i in range(Joc.NR_LINII - 1, -1, -1):
-                            if stare_curenta.tabla_joc.matr[7 * i + coloana] == Joc.GOL:
-                                linie = i
-                                print(f"linia este: {linie}")
-                                check_line = 1
-                                raspuns_valid = True
-                                break
-                        if check_line == 0:
-                            print("Toata coloana este ocupata.")
+                    if coloana in [i for i in range(0, Joc.NR_COLOANE)] and linie in [i for i in range(0, Joc.NR_COLOANE)]:
+                        if [linie, coloana] in pozitii_valide:
+                            raspuns_valid = True
                     else:
-                        print("Coloana invalida (trebuie sa fie un numar intre 0 si {}).".format(Joc.NR_COLOANE - 1))
-
+                        print("Coloana sau linie invalida (trebuie sa fie un numar intre 0 si {} si pe o pozitie valida).".format(Joc.NR_COLOANE - 1))
+                        
                 except ValueError:
-                    print("Coloana trebuie sa fie un numar intreg.")
+                    print("Coloana si linia trebuie sa fie un numere intregi.")
 
             # dupa iesirea din while sigur am valida coloana
             # deci pot plasa simbolul pe "tabla de joc"
-            pozitie = linie * Joc.NR_COLOANE + coloana
-            stare_curenta.tabla_joc.matr[pozitie] = Joc.JMIN
+            stare_curenta.tabla_joc = mutari_valide[pozitii_valide.index([linie, coloana])]
+            
 
             # afisarea starii jocului in urma mutarii utilizatorului
             print("\nTabla dupa mutarea jucatorului")
@@ -323,6 +471,7 @@ def main():
                 stare_actualizata = min_max(stare_curenta)
             else:  # tip_algoritm==2
                 stare_actualizata = alpha_beta(-5000, 5000, stare_curenta)
+            print(f"stare actualiazta: {type(stare_actualizata.stare_aleasa)}")
             stare_curenta.tabla_joc = stare_actualizata.stare_aleasa.tabla_joc
             print("Tabla dupa mutarea calculatorului")
             print(str(stare_curenta))
