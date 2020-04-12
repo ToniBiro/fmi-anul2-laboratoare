@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="822cafd7-f5ca-4f14-8c49-b6eb231dedeb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab8_PB2__connect4_incomplet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab8_PB2__connect4_incomplet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab8_PB3_reversi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab8_PB3_reversi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab9_PB1_bombs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab9_PB1_bombs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +30,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab8_PB3_reversi.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab9_PB1_bombs.py" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -45,7 +45,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Lab8_PB3_reversi">
+  <component name="RunManager" selected="Python.Lab9_PB1_bombs">
     <configuration name="Lab8_PB1__x_si_0__incomplet" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="fmi-anul2-laboratoare" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -104,6 +104,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab8_PB3_reversi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Lab9_PB1_bombs" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="fmi-anul2-laboratoare" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\toni\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Semestrul 2/IA/lab8" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Semestrul 2/IA/lab8/Lab9_PB1_bombs.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -231,6 +253,7 @@
       <item itemvalue="Python.Lab8_PB1__x_si_0__incomplet" />
       <item itemvalue="Python.Lab8_PB2__connect4_incomplet" />
       <item itemvalue="Python.Lab8_PB3_reversi" />
+      <item itemvalue="Python.Lab9_PB1_bombs" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -263,7 +286,7 @@
       <workItem from="1585820949121" duration="3000" />
       <workItem from="1586001287259" duration="6000" />
       <workItem from="1586455574416" duration="2502000" />
-      <workItem from="1586601401585" duration="28234000" />
+      <workItem from="1586601401585" duration="41966000" />
     </task>
     <servers />
   </component>
@@ -298,6 +321,7 @@
     <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$misionari_si_canibali.coverage" NAME="misionari_si_canibali Coverage Results" MODIFIED="1584915406524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
     <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$problema_de_cautare_un_mesaj.coverage" NAME="problema_de_cautare_un_mesaj Coverage Results" MODIFIED="1585167746677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab6" />
     <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$problema_8_puzzle.coverage" NAME="problema_8_puzzle Coverage Results" MODIFIED="1585166661682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
+    <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$Lab9_PB1_bombs.coverage" NAME="Lab9_PB1_bombs Coverage Results" MODIFIED="1586713086534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab8" />
     <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$problema_blocurilor.coverage" NAME="problema_blocurilor Coverage Results" MODIFIED="1584908476780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab4" />
     <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$Lab8_PB2__connect4_incomplet.coverage" NAME="Lab8_PB2__connect4_incomplet Coverage Results" MODIFIED="1586620462603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab8" />
     <SUITE FILE_PATH="coverage/fmi_anul2_laboratoare$Lab8_PB3_reversi.coverage" NAME="Lab8_PB3_reversi Coverage Results" MODIFIED="1586695238348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Semestrul 2/IA/lab8" />
