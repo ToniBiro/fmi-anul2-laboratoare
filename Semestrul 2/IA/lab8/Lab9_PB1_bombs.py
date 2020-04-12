@@ -1,127 +1,213 @@
 import time
-
+from copy import deepcopy
 
 class Joc:
     """
     Clasa care defineste jocul. Se va schimba de la un joc la altul.
     """
-    NR_COLOANE = 7
-    NR_LINII = 6
-    NR_CONNECT = 4  # cu cate simboluri adiacente se castiga
-    SIMBOLURI_JUC = ['X', '0']  # ['G', 'R'] sau ['X', '0']
-    JMIN = None  # 'R'
-    JMAX = None  # 'G'
-    GOL = '.'
+    NR_COLOANE = 22
+    NR_LINII = 13
+    SIMBOLURI_JUC = ['1', '2']  # ['G', 'R'] sau ['X', '0']
+    JMIN = None
+    JMAX = None
+    GOL = ' '
+    SCUT = 'p'
 
-    def __init__(self, tabla=None):
-        self.matr = tabla or [Joc.GOL] * (Joc.NR_COLOANE * Joc.NR_LINII)
+    def __init__(self, tabla, viata_min=1, viata_max=1, c_min=(1, 1), c_max=(11, 20),
+                 bomba_min=0, bomba_max=0, c_bomba_min=None, c_bomba_max=None, b_activa_min=0, b_activa_max=0):
+        self.matr = tabla
+        self.viata_min = viata_min
+        self.viata_max = viata_max
+        self.c_min = c_min
+        self.c_max = c_max
+        self.bomba_min = bomba_min
+        self.bomba_max = bomba_max
+        self.c_bomba_min = c_bomba_min
+        self.c_bomba_max = c_bomba_max
+        self.b_activa_min = b_activa_min
+        self.b_activa_max = b_activa_max
 
     def final(self):
-        # returnam simbolul jucatorului castigator daca are 4 piese adiacente
-        #	pe linie, coloana, diagonala \ sau diagonala /
-        # sau returnam 'remiza'
+        # returnam simbolul jucatorului inca viu
         # sau 'False' daca nu s-a terminat jocul
 
-        # verificam linii
-        for i in range(6):
-            for j in range(4):
-                if self.matr[7 * i + j:7 * i + j + 5] == [Joc.SIMBOLURI_JUC[0]] * 4:
-                    return Joc.SIMBOLURI_JUC[0]
-                if self.matr[7 * i + j:7 * i + j + 5] == [Joc.SIMBOLURI_JUC[1]] * 4:
-                    return Joc.SIMBOLURI_JUC[1]
+        if self.viata_min == 0:
+            return Joc.JMIN
 
-        # verificam coloane
-        for i in range(7):
-            for j in range(3):
-                if self.matr[i + (7 * j):i + (7 * j) + 22:7] == [Joc.SIMBOLURI_JUC[0]] * 4:
-                    return Joc.SIMBOLURI_JUC[0]
-                if self.matr[i + (7 * j):i + (7 * j) + 22:7] == [Joc.SIMBOLURI_JUC[1]] * 4:
-                    return Joc.SIMBOLURI_JUC[1]
+        if self.viata_max == 0:
+            return Joc.JMAX
+            
+        return False
 
-        # verificam diagonale \
-        for i in range(3):
-            for j in range(4):
-                if self.matr[7 * i + j:7 * i + j + 25:8] == [Joc.SIMBOLURI_JUC[0]] * 4:
-                    return Joc.SIMBOLURI_JUC[0]
-                if self.matr[7 * i + j:7 * i + j + 25:8] == [Joc.SIMBOLURI_JUC[1]] * 4:
-                    return Joc.SIMBOLURI_JUC[1]
-
-        # verificam diagonale /
-        for i in range(3):
-            for j in range(4):
-                if self.matr[7 * i + j + 3:7 * i + j + 22:6] == [Joc.SIMBOLURI_JUC[0]] * 4:
-                    return Joc.SIMBOLURI_JUC[0]
-                if self.matr[7 * i + j + 3:7 * i + j + 22:6] == [Joc.SIMBOLURI_JUC[1]] * 4:
-                    return Joc.SIMBOLURI_JUC[1]
-
-        if Joc.GOL not in self.matr:
-            return 'remiza'
-        else:
-            return False
-
-    def mutari(self, jucator_opus):
+    def adauga_mutari(self, ii, jj, i, j, jucator):
         l_mutari = []
 
-        # TO DO..........
-        # folosim:
-        # matr_tabla_noua = list(self.matr)
-        # .... "jucator_opus" (parametrul functiei) adauga o mutare in "matr_tabla_noua"
-        # l_mutari.append(Joc(matr_tabla_noua))
+        # initializare variabile curente
+        bomba = 0
+        bomba_activa = 0
+        cord_b_l = 0
+        cord_b_c = 0
+        protectie = 0
+        bomba_mea = 0
+        bomba_mea_activa = 0
+        if jucator == Joc.JMAX:
+            bomba_mea = self.bomba_max
+            if bomba_mea == 1:
+                bomba_mea_activa = self.b_activa_max
+            bomba = self.bomba_min
+            bomba_activa = self.b_activa_min
+            protectie = self.viata_max - 1
+            if bomba == 1 and bomba_activa == 1:
+                cord_b_l = self.c_bomba_min[0]
+                cord_b_c = self.c_bomba_min[1]
 
-        for i in range(5, 0, -1):
-            for casuta in range(i * 7, i * 7 + 7):
-                matr_tabla_noua = self.matr.copy()
-                if i == 5:
-                    if matr_tabla_noua[casuta] == Joc.GOL:
-                        matr_tabla_noua[casuta] = jucator_opus
-                        l_mutari.append(Joc(matr_tabla_noua))
+        if jucator == Joc.JMIN:
+            bomba_mea = self.bomba_min
+            if bomba_mea == 1:
+                bomba_mea_activa = self.b_activa_min
+            bomba = self.bomba_max
+            bomba_activa = self.b_activa_max
+            protectie = self.viata_min - 1
+            if bomba == 1 and bomba_activa == 1:
+                cord_b_l = self.c_bomba_max[0]
+                cord_b_c = self.c_bomba_max[1]
+
+        # cazuri posibile de mutari
+        matr_aux = deepcopy(self.matr)
+        if bomba_activa == 1 and (cord_b_l == i or cord_b_c == j):
+            if protectie > 0 and matr_aux[i][j] == ' ' or protectie == 0 and matr_aux[i][j] == 'p':
+                matr_aux[ii][jj] = ' '
+                matr_aux[i][j] = jucator
+                matr_aux[cord_b_l][cord_b_c] = ' '
+                if jucator == Joc.JMAX:
+                    l_mutari.append(Joc(matr_aux, c_max=(i, j), viata_max=self.viata_max-1, b_activa_min=0, bomba_min=0))
                 else:
-                    if matr_tabla_noua[casuta] == Joc.GOL and matr_tabla_noua[casuta + 7] != Joc.GOL:
-                        matr_tabla_noua[casuta] = jucator_opus
-                        l_mutari.append(Joc(matr_tabla_noua))
+                    l_mutari.append(Joc(matr_aux, c_min=(i, j), viata_min=self.viata_min-1, b_activa_max=0, bomba_max=0))
+
+                if bomba_mea == 0:
+                    matr_aux[ii][jj] = 'b'
+                    if jucator == Joc.JMAX:
+                        l_mutari.append(
+                            Joc(matr_aux, viata_max=self.viata_max-1, bomba_max=1, c_bomba_max=(ii, jj), b_activa_max=0, c_max=(i, j), b_activa_min=0, bomba_min=0))
+                    else:
+                        l_mutari.append(
+                            Joc(matr_aux, viata_min=self.viata_min-1, bomba_min=1, c_bomba_min=(ii, jj), b_activa_min=0, c_min=(i, j), b_activa_max=0, bomba_max=0))
+                if bomba_mea == 1 and bomba_mea_activa == 0:
+                    if jucator == Joc.JMAX:
+                        l_mutari.append(Joc(matr_aux, c_max=(i, j), b_activa_max=1, c_bomba_max=(ii, jj), b_activa_min=0, bomba_min=0))
+                    if jucator == Joc.JMIN:
+                        l_mutari.append(Joc(matr_aux, c_min=(i, j), b_activa_min=1, c_bomba_min=(ii, jj), b_activa_max=0, bomba_max=0))
+            else:
+                matr_aux[ii][jj] = ' '
+                matr_aux[i][j] = ' '
+                matr_aux[cord_b_l][cord_b_c] = ' '
+                if jucator == Joc.JMAX:
+                    l_mutari.append(Joc(matr_aux, viata_max=0, c_max=(i, j)))
+                else:
+                    l_mutari.append(Joc(matr_aux, viata_min=0, c_min=(i, j)))
+        elif matr_aux[i][j] == ' ':
+            matr_aux[ii][jj] = ' '
+            matr_aux[i][j] = jucator
+            if jucator == Joc.JMAX:
+                l_mutari.append(Joc(matr_aux, c_max=(i, j)))
+            else:
+                l_mutari.append(Joc(matr_aux, c_min=(i, j)))
+
+            if bomba_mea == 0:
+                matr_aux[ii][jj] = 'b'
+                if jucator == Joc.JMAX:
+                    l_mutari.append(Joc(matr_aux, bomba_max=1, c_bomba_max=(ii, jj), b_activa_max=0, c_max=(i, j)))
+                if jucator == Joc.JMIN:
+                    l_mutari.append(Joc(matr_aux, bomba_min=1, c_bomba_min=(ii, jj), b_activa_min=0, c_min=(i, j)))
+            if bomba_mea == 1 and bomba_mea_activa == 0:
+                if jucator == Joc.JMAX:
+                    l_mutari.append(Joc(matr_aux, b_activa_max=1, c_max=(i, j)))
+                if jucator == Joc.JMIN:
+                    l_mutari.append(Joc(matr_aux, b_activa_min=1, c_min=(i, j)))
+        elif matr_aux[i][j] == 'p':
+            matr_aux[ii][jj] = ' '
+            matr_aux[i][j] = jucator
+            if jucator == Joc.JMAX:
+                l_mutari.append(Joc(matr_aux, c_max=(i, j), viata_max=self.viata_max+1))
+            else:
+                l_mutari.append(Joc(matr_aux, c_min=(i, j), viata_min=self.viata_min+1))
+
+            if bomba_mea == 0:
+                matr_aux[ii][jj] = 'b'
+                if jucator == Joc.JMAX:
+                    l_mutari.append(Joc(matr_aux, bomba_max=1, c_bomba_max=(ii, jj), b_activa_max=0, c_max=(i, j), viata_max=self.viata_max+1))
+                if jucator == Joc.JMIN:
+                    l_mutari.append(Joc(matr_aux, bomba_min=1, c_bomba_min=(ii, jj), b_activa_min=0, c_min=(i, j), viata_min=self.viata_min+1))
+            if bomba_mea == 1 and bomba_mea_activa == 0:
+                if jucator == Joc.JMAX:
+                    l_mutari.append(Joc(matr_aux, b_activa_max=1, viata_max=self.viata_max+1, c_max=(i, j)))
+                if jucator == Joc.JMIN:
+                    l_mutari.append(Joc(matr_aux, b_activa_min=1, viata_min=self.viata_min+1, c_min=(i, j)))
 
         return l_mutari
 
-    def nr_intervale_deschise(self, jucator):
-        # un interval de 4 pozitii adiacente (pe linie, coloana, diag \ sau diag /)
-        # este deschis pt "jucator" daca nu contine "juc_opus"
+    def mutari(self, jucator):
+        l_mutari = []
 
-        juc_opus = Joc.JMIN if jucator == Joc.JMAX else Joc.JMAX
+        # lista de configuratii a tablei posibile
+        # ma uit sus jos stanga dreapta din pozitia jucatorului
+
+        # initializare
+        cord_l = ''
+        cord_c = ''
+        if jucator == Joc.JMAX:
+            cord_l = self.c_max[0]
+            cord_c = self.c_max[1]
+        if jucator == Joc.JMIN:
+            cord_l = self.c_min[0]
+            cord_c = self.c_min[1]
+
+        # cazuri pas sus
+        l_mutari += self.adauga_mutari(cord_l, cord_c, cord_l-1, cord_c, jucator)
+
+        # cazuri pas drepata
+        l_mutari += self.adauga_mutari(cord_l, cord_c, cord_l, cord_c+1, jucator)
+
+        # cazuri pas jos
+        l_mutari += self.adauga_mutari(cord_l, cord_c, cord_l+1, cord_c, jucator)
+
+        # cazuri pas stanga
+        l_mutari += self.adauga_mutari(cord_l, cord_c, cord_l, cord_c-1, jucator)
+
+        return l_mutari
+
+    def nr_scor(self, jucator):
+        # poz libera 0 puncte
+        # daca iau protectie +3 puncte
+        # pun bomba 2 punct
+        # activez bomba 1 punct
+        # daca merg in dreptul unei bombe inamice scad 2
+
         rez = 0
 
-        # linii
-        for i in range(6):
-            for j in range(4):
-                if juc_opus not in self.matr[7 * i + j:7 * i + j + 5] and jucator in self.matr[7 * i + j:7 * i + j + 5]:
-                    rez += 1
-
-        # coloane
-        for i in range(7):
-            for j in range(3):
-                if juc_opus not in self.matr[i + (7 * j):i + (7 * j) + 22:7] and jucator in self.matr[i + (7 * j):i + (
-                        7 * j) + 22:7]:
-                    rez += 1
-
-        # diagonale \
-        for i in range(3):
-            for j in range(4):
-                if juc_opus not in self.matr[7 * i + j:7 * i + j + 25:8] and jucator in self.matr[
-                                                                                        7 * i + j:7 * i + j + 25:8]:
-                    rez += 1
-
-        # diagonale /
-        for i in range(3):
-            for j in range(4):
-                if juc_opus not in self.matr[7 * i + j + 3:7 * i + j + 19:6] and jucator in self.matr[
-                                                                                            7 * i + j + 3:7 * i + j + 22:6]:
-                    rez += 1
+        if jucator == Joc.JMAX:
+            if self.viata_max > 1:
+                rez += 3
+            if self.bomba_max == 1:
+                rez += 2
+            if self.b_activa_max == 1:
+                rez += 1
+            if self.c_bomba_min == self.c_max:
+                rez -= 2
+        else:
+            if self.viata_min > 1:
+                rez += 3
+            if self.bomba_min == 1:
+                rez += 2
+            if self.b_activa_min == 1:
+                rez += 1
+            if self.c_bomba_max == self.c_min:
+                rez -= 2
 
         return rez
 
     def fct_euristica(self):
-        # intervale_deschisa(juc) = cate intervale de 4 pozitii
-        # (pe linii, coloane, diagonale) nu contin juc_opus
-        return self.nr_intervale_deschise(Joc.JMAX) - self.nr_intervale_deschise(Joc.JMIN)
+        return self.nr_scor(Joc.JMAX) - self.nr_scor(Joc.JMIN)
 
     def estimeaza_scor(self, adancime):
         t_final = self.final()
@@ -136,13 +222,12 @@ class Joc:
 
     def __str__(self):
         sir = ''
-        for nr_col in range(self.NR_COLOANE):
-            sir += str(nr_col) + ' '
-        sir += '\n'
 
-        for lin in range(self.NR_LINII):
-            k = lin * self.NR_COLOANE
-            sir += (" ".join([str(x) for x in self.matr[k: k + self.NR_COLOANE]]) + "\n")
+        for i in range(Joc.NR_LINII):
+            for j in range(Joc.NR_COLOANE):
+                sir = sir + self.matr[i][j] + ' '
+            sir += "\n"
+
         return sir
 
 
@@ -305,67 +390,54 @@ def main():
             print("Raspunsul trebuie sa fie {} sau {}.".format(s1, s2))
     Joc.JMAX = s1 if Joc.JMIN == s2 else s2
 
+    tabla = [['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
+             ['#', '1', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+             ['#', ' ', '#', ' ', ' ', ' ', '#', '#', '#', ' ', ' ', ' ', '#', '#', '#', '#', ' ', '#', '#', '#', '#', '#'],
+             ['#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+             ['#', ' ', ' ', ' ', ' ', 'p', ' ', '#', ' ', ' ', 'p', ' ', ' ', '#', ' ', ' ', '#', '#', '#', ' ', '#', '#'],
+             ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+             ['#', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#', '#', '#', '#', ' ', ' ', ' ', ' ', '#', '#'],
+             ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'p', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+             ['#', ' ', '#', '#', '#', '#', '#', '#', ' ', ' ', ' ', '#', '#', '#', '#', '#', '#', '#', ' ', ' ', ' ', '#'],
+             ['#', ' ', ' ', ' ', ' ', '#', ' ', '#', ' ', ' ', ' ', '#', 'p', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+             ['#', ' ', '#', '#', '#', '#', ' ', '#', ' ', ' ', ' ', '#', '#', '#', ' ', '#', '#', '#', ' ', ' ', ' ', '#'],
+             ['#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '2', '#'],
+             ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']]
+
     # initializare tabla
-    tabla_curenta = Joc()
+    tabla_curenta = Joc(tabla, )
     print("Tabla initiala")
     print(str(tabla_curenta))
 
     # creare stare initiala
     stare_curenta = Stare(tabla_curenta, Joc.SIMBOLURI_JUC[0], Stare.ADANCIME_MAX)
 
-    linie = -1
-    coloana = -1
     while True:
-        if (stare_curenta.j_curent == Joc.JMIN):
-            # muta jucatorul
-            raspuns_valid = False
-            while not raspuns_valid:
-                try:
-                    coloana = int(input("coloana = "))
-
-                    # TO DO......
-                    # de verificat daca "coloana" este in intervalul corect,
-                    # apoi de gasit pe ce "linie" este cea mai de jos
-                    # casuta goala de pe acea "coloana"
-                    check_line = 0
-
-                    if coloana in [i for i in range(0, Joc.NR_COLOANE)]:
-                        # gasit linie
-                        for i in range(Joc.NR_LINII - 1, -1, -1):
-                            if stare_curenta.tabla_joc.matr[7 * i + coloana] == Joc.GOL:
-                                linie = i
-                                print(f"linia este: {linie}")
-                                check_line = 1
-                                raspuns_valid = True
-                                break
-                        if check_line == 0:
-                            print("Toata coloana este ocupata.")
-                    else:
-                        print("Coloana invalida (trebuie sa fie un numar intre 0 si {}).".format(Joc.NR_COLOANE - 1))
-
-                except ValueError:
-                    print("Coloana trebuie sa fie un numar intreg.")
-
-            # dupa iesirea din while sigur am valida coloana
-            # deci pot plasa simbolul pe "tabla de joc"
-            pozitie = linie * Joc.NR_COLOANE + coloana
-            stare_curenta.tabla_joc.matr[pozitie] = Joc.JMIN
-
-            # afisarea starii jocului in urma mutarii utilizatorului
-            print("\nTabla dupa mutarea jucatorului")
+        if stare_curenta.j_curent == Joc.JMIN:
+            # Mutare calculator1
+            # preiau timpul in milisecunde de dinainte de mutare
+            t_inainte = int(round(time.time() * 1000))
+            if tip_algoritm == '1':
+                stare_actualizata = min_max(stare_curenta)
+            else:  # tip_algoritm==2
+                stare_actualizata = alpha_beta(-5000, 5000, stare_curenta)
+            stare_curenta.tabla_joc = stare_actualizata.stare_aleasa.tabla_joc
+            print("Tabla dupa mutarea calculatorului")
             print(str(stare_curenta))
 
-            # testez daca jocul a ajuns intr-o stare finala
-            # si afisez un mesaj corespunzator in caz ca da
-            if (afis_daca_final(stare_curenta)):
+            # preiau timpul in milisecunde de dupa mutare
+            t_dupa = int(round(time.time() * 1000))
+            print("Calculatorul a \"gandit\" timp de " + str(t_dupa - t_inainte) + " milisecunde.")
+
+            if afis_daca_final(stare_curenta):
                 break
 
             # S-a realizat o mutare. Schimb jucatorul cu cel opus
             stare_curenta.j_curent = stare_curenta.jucator_opus()
 
-        # --------------------------------
+
         else:  # jucatorul e JMAX (calculatorul)
-            # Mutare calculator
+            # Mutare calculator2
 
             # preiau timpul in milisecunde de dinainte de mutare
             t_inainte = int(round(time.time() * 1000))
@@ -381,7 +453,7 @@ def main():
             t_dupa = int(round(time.time() * 1000))
             print("Calculatorul a \"gandit\" timp de " + str(t_dupa - t_inainte) + " milisecunde.")
 
-            if (afis_daca_final(stare_curenta)):
+            if afis_daca_final(stare_curenta):
                 break
 
             # S-a realizat o mutare. Schimb jucatorul cu cel opus
