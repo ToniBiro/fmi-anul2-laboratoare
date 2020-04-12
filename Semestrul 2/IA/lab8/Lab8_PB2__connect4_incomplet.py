@@ -21,7 +21,6 @@ class Joc:
         #	pe linie, coloana, diagonala \ sau diagonala /
         # sau returnam 'remiza'
         # sau 'False' daca nu s-a terminat jocul
-        rez = False
 
         # verificam linii
         for i in range(6):
@@ -55,7 +54,7 @@ class Joc:
                 if self.matr[7*i+j+3:7*i+j+22:6] == [Joc.SIMBOLURI_JUC[1]]*4:
                     return Joc.SIMBOLURI_JUC[1]
 
-        if rez==False  and  Joc.GOL not in self.matr:
+        if Joc.GOL not in self.matr:
             return 'remiza'
         else:
             return False
