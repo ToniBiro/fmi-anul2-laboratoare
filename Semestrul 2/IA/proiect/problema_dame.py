@@ -27,7 +27,7 @@ class Joc:
                         (tabla[a][c] == juc_opus and tabla[a + (-1*culoare)][c + (+1*culoare)] == Joc.GOL)
 
         if not exista_mutari:
-            if i == 0 or i == Joc.NR_LINII-1:  # verificam daca trebuie sa il facem rege
+            if i == 1 or i == Joc.NR_LINII:  # verificam daca trebuie sa il facem rege
                 tabla[i][j] = jucator.upper()
             else:
                 tabla[i][j] = jucator
@@ -47,12 +47,112 @@ class Joc:
             copie_tabla[i][j] = Joc.GOL
             self.multi_hop(a + (-1*culoare), c + (+1*culoare), culoare, jucator, l_mutari, copie_tabla)
 
+    def multi_hop_rege(self, i, j, culoare, jucator, l_mutari, tabla):
 
-    # def verifica_mutare_rege(self, i, j, culoare, l_mutari):
+        juc_opus = Joc.JMIN if jucator == Joc.JMAX else Joc.JMAX
+        a = i + (-1 * culoare)
+        b = i + (+1 * culoare)
+        c = j + (-1 * culoare)
+        d = j + (+1 * culoare)
 
+        # a,c - stanga sus  a,d - dreapta sus
+        # b,c - stanga jos  b,d - dreapta jos
+
+        exista_mutari = (tabla[a][c] == juc_opus and tabla[a + (-1*culoare)][c + (-1*culoare)] == Joc.GOL) or\
+                        (tabla[a][d] == juc_opus and tabla[a + (-1*culoare)][d + (+1*culoare)] == Joc.GOL) or\
+                        (tabla[b][c] == juc_opus and tabla[b + (+1*culoare)][c + (-1*culoare)] == Joc.GOL) or\
+                        (tabla[b][d] == juc_opus and tabla[b + (+1*culoare)][d + (+1*culoare)] == Joc.GOL)
+
+        if not exista_mutari:   # conditie de iesire din recursie - nu mai avem pozitii in care sa sarim
+            if i == 1 or i == Joc.NR_LINII:  # verificam daca trebuie sa il facem rege
+                tabla[i][j] = jucator.upper()
+            else:
+                tabla[i][j] = jucator.upper()
+            l_mutari.append(Joc(tabla))
+
+        # mutari la stanga sus
+        if tabla[a][c] == juc_opus and tabla[a + (-1*culoare)][c + (-1*culoare)] == Joc.GOL:
+            copie_tabla = deepcopy(tabla)
+            copie_tabla[a][c] = Joc.GOL
+            copie_tabla[i][j] = Joc.GOL
+            self.multi_hop(a + (-1*culoare), c + (-1*culoare), culoare, jucator, l_mutari, copie_tabla)
+
+        # mutari la dreapta sus
+        if tabla[a][d] == juc_opus and tabla[a + (-1*culoare)][d + (+1*culoare)] == Joc.GOL:
+            copie_tabla = deepcopy(tabla)
+            copie_tabla[a][d] = Joc.GOL
+            copie_tabla[i][j] = Joc.GOL
+            self.multi_hop(a + (-1*culoare), d + (+1*culoare), culoare, jucator, l_mutari, copie_tabla)
+
+        # mutari la stanga jos
+        if tabla[b][c] == juc_opus and tabla[b + (+1 * culoare)][c + (-1 * culoare)] == Joc.GOL:
+            copie_tabla = deepcopy(tabla)
+            copie_tabla[b][c] = Joc.GOL
+            copie_tabla[i][j] = Joc.GOL
+            self.multi_hop(b + (+1 * culoare), c + (-1 * culoare), culoare, jucator, l_mutari, copie_tabla)
+
+        # mutari la dreapta jos
+        if tabla[b][d] == juc_opus and tabla[b + (+1 * culoare)][d + (+1 * culoare)] == Joc.GOL:
+            copie_tabla = deepcopy(tabla)
+            copie_tabla[b][d] = Joc.GOL
+            copie_tabla[i][j] = Joc.GOL
+            self.multi_hop(b + (-1 * culoare), d + (+1 * culoare), culoare, jucator, l_mutari, copie_tabla)
+
+    def verifica_mutare_rege(self, i, j, culoare, jucator, l_mutari):
+        juc_opus = Joc.JMIN if jucator == Joc.JMAX else Joc.JMAX
+
+        # stanga sus Gol
+        a = i + (-1 * culoare)
+        b = j + (-1 * culoare)
+        if self.matr[a][b] == Joc.GOL:
+            copie_tabla = deepcopy(self.matr)
+            copie_tabla[i][j] = Joc.GOL
+            copie_tabla[a][b] = jucator.upper()
+            l_mutari.append(Joc(copie_tabla))
+
+        # dreapta sus Gol
+        a = i + (-1 * culoare)
+        b = j + (+1 * culoare)
+        if self.matr[a][b] == Joc.GOL:
+            copie_tabla = deepcopy(self.matr)
+            copie_tabla[i][j] = Joc.GOL
+            copie_tabla[a][b] = jucator.upper()
+            l_mutari.append(Joc(copie_tabla))
+
+        # stanga jos Gol
+        a = i + (+1 * culoare)
+        b = j + (-1 * culoare)
+        if self.matr[a][b] == Joc.GOL:
+            copie_tabla = deepcopy(self.matr)
+            copie_tabla[i][j] = Joc.GOL
+            copie_tabla[a][b] = jucator.upper()
+            l_mutari.append(Joc(copie_tabla))
+
+        #dreapta jos Gol
+        a = i + (+1 * culoare)
+        b = j + (+1 * culoare)
+        if self.matr[a][b] == Joc.GOL:
+            copie_tabla = deepcopy(self.matr)
+            copie_tabla[i][j] = Joc.GOL
+            copie_tabla[a][b] = jucator.upper()
+            l_mutari.append(Joc(copie_tabla))
+
+        # stanga sau dreapta, sus sau jos Jucator opus
+        a = i + (-1 * culoare)
+        b = i + (+1 * culoare)
+        c = j + (-1 * culoare)
+        d = j + (+1 * culoare)
+
+        exista_mutari = (self.matr[a][c] == juc_opus and self.matr[a + (-1*culoare)][c + (-1*culoare)] == Joc.GOL) or \
+                        (self.matr[a][d] == juc_opus and self.matr[a + (-1*culoare)][d + (+1*culoare)] == Joc.GOL) or \
+                        (self.matr[b][c] == juc_opus and self.matr[b + (+1*culoare)][c + (-1*culoare)] == Joc.GOL) or \
+                        (self.matr[b][d] == juc_opus and self.matr[b + (+1*culoare)][d + (+1*culoare)] == Joc.GOL)
+
+        if exista_mutari:
+            copie_tabla = deepcopy(self.matr)
+            self.multi_hop_rege(i, j, culoare, jucator, l_mutari, copie_tabla)
 
     def verifica_mutare(self, i, j, culoare, jucator, l_mutari):
-
         juc_opus = Joc.JMIN if jucator == Joc.JMAX else Joc.JMAX
 
         # stanga Gol
@@ -62,12 +162,11 @@ class Joc:
         if self.matr[a][b] == Joc.GOL:
             copie_tabla = deepcopy(self.matr)
             copie_tabla[i][j] = Joc.GOL
-            if a == 0 or a == Joc.NR_LINII-1:  # devine rege
+            if a == 1 or a == Joc.NR_LINII:  # devine rege
                 copie_tabla[a][b] = jucator.upper()
             else:
                 copie_tabla[a][b] = jucator
             l_mutari.append(Joc(copie_tabla))
-
 
         # dreapta Gol
         a = i + (-1 * culoare)
@@ -75,24 +174,23 @@ class Joc:
         if self.matr[a][b] == Joc.GOL:
             copie_tabla = deepcopy(self.matr)
             copie_tabla[i][j] = Joc.GOL
-            if a == 0 or a == Joc.NR_LINII-1:  # devine rege
+            if a == 1 or a == Joc.NR_LINII:  # devine rege
                 copie_tabla[a][b] = jucator.upper()
             else:
                 copie_tabla[a][b] = jucator
-            l_mutari.append(copie_tabla)
+            l_mutari.append(Joc(copie_tabla))
 
         # stanga sau dreapta Jucator opus
         a = i + (-1 * culoare)
         b = j + (-1 * culoare)
         c = j + (+1 * culoare)
 
-        exista_mutari = (self.matr[a][b] == juc_opus and self.matr[a + (-1 * culoare)][b + (-1 * culoare)] == Joc.GOL) or \
-                        (self.matr[a][c] == juc_opus and self.matr[a + (-1 * culoare)][c + (+1 * culoare)] == Joc.GOL)
+        exista_mutari = (self.matr[a][b] == juc_opus and self.matr[a + (-1*culoare)][b + (-1*culoare)] == Joc.GOL) or\
+                        (self.matr[a][c] == juc_opus and self.matr[a + (-1*culoare)][c + (+1*culoare)] == Joc.GOL)
 
         if exista_mutari:
             copie_tabla = deepcopy(self.matr)
             self.multi_hop(i, j, culoare, jucator, l_mutari, copie_tabla)
-
 
     def mutari(self, jucator):
         l_mutari = []
@@ -102,12 +200,12 @@ class Joc:
 
         culoare = -1 if jucator.upper() == 'N' else 1
 
-        for i in range(Joc.NR_LINII):
-            for j in range(Joc.NR_COLOANE):
+        for i in range(1, Joc.NR_LINII+1):
+            for j in range(1, Joc.NR_COLOANE+1):
                 if self.matr[i][j] == jucator:  # pozitie pe tabla unde se afla o piesa a jucatorului curent
-                    if self.matr[i][j] != jucator.upper():   # verificam sa nu fie rege
-                        self.verifica_mutare(i, j, culoare, jucator, l_mutari)
-
+                    self.verifica_mutare(i, j, culoare, jucator, l_mutari)
+                if self.matr[i][j] == jucator.upper():   # verificam daca e rege
+                    self.verifica_mutare_rege(i, j, culoare, jucator, l_mutari)
 
         return l_mutari
 
@@ -117,9 +215,10 @@ class Joc:
         l_pozitii = []
 
         for tabla in mutari:
-            for i in range(Joc.NR_LINII):
-                for j in range(Joc.NR_COLOANE):
-                    if self.matr[i][j] != tabla[i][j] and tabla[i][j] == jucator:
+
+            for i in range(1, Joc.NR_LINII+1):
+                for j in range(1, Joc.NR_COLOANE+1):
+                    if self.matr[i][j] != tabla.matr[i][j] and tabla.matr[i][j] == jucator:
                         l_pozitii.append(([i, j], tabla))
 
         return l_pozitii
@@ -128,18 +227,29 @@ class Joc:
         # ne uitam cate piese sunt din culoarea jucatorului
         rez = 0
 
-        for i in range(Joc.NR_LINII):
-            for j in range(Joc.NR_COLOANE):
+        for i in range(1, Joc.NR_LINII+1):
+            for j in range(1, Joc.NR_COLOANE+1):
                 if self.matr[i][j] == jucator:
                     rez += 1
-
         return rez
 
     def final(self):
         # returnam simbolul jucatorului castigator sau 'False' daca nu s-a terminat jocul
-        #
+        # daca un jucator a luat toate piesele celuilalt jucator acesta castiga
+        # daca un jucator ramane fara mutari (este blocat) pierde
+        # daca nici un jucator nu mai are mutari valide -> remiza
 
+        mutari_max = self.get_positions(Joc.JMAX)
+        mutari_min = self.get_positions(Joc.JMIN)
 
+        if self.nr_piese_pe_tabla(Joc.JMAX) == 0 or len(mutari_max) == 0:
+            return Joc.JMIN
+
+        if self.nr_piese_pe_tabla(Joc.JMIN) == 0 or len(mutari_min) == 0:
+            return Joc.JMAX
+
+        if len(mutari_min) == 0 and len(mutari_max) == 0:
+            return 'remiza'
 
         return False
 
@@ -159,11 +269,11 @@ class Joc:
             return self.fct_euristica()
 
     def __str__(self):
-        sir = '     a b c d e f g h\n     --------------\n'
+        sir = '    a b c d e f g h\n    --------------\n'
 
         for i in range(1, Joc.NR_LINII+1):
-            sir += str(i-1) + ': '
-            for j in range(Joc.NR_COLOANE):
+            sir += str(i) + ': '
+            for j in range(1, Joc.NR_COLOANE+1):
                 sir = sir + self.matr[i][j] + ' '
             sir += "\n"
 
@@ -250,7 +360,7 @@ def alpha_beta(alpha, beta, stare):
 
     stare.mutari_posibile = stare.mutari()
 
-    if stare.j_curent == Joc.JMAX:
+    if stare.j_curent.lower() == Joc.JMAX.lower():
         scor_curent = float('-inf')
 
         for mutare in stare.mutari_posibile:
@@ -265,7 +375,7 @@ def alpha_beta(alpha, beta, stare):
                 if alpha >= beta:
                     break
 
-    elif stare.j_curent == Joc.JMIN:
+    elif stare.j_curent.lower() == Joc.JMIN.lower():
         scor_curent = float('inf')
 
         for mutare in stare.mutari_posibile:
@@ -330,14 +440,16 @@ def main():
         else:
             print("Raspunsul trebuie sa fie {} sau {}.".format(s1, s2))
     Joc.JMAX = s1 if Joc.JMIN == s2 else s2
+    Joc.JMAX = Joc.JMAX.lower()
+    Joc.JMIN = Joc.JMIN.lower()
 
     # initializare tabla
     # bordare cu spatii
 
     tabla = [[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-             [' ', 'n', '#', 'n', '#', 'n', '#', 'n', '#', ' '],
              [' ', '#', 'n', '#', 'n', '#', 'n', '#', 'n', ' '],
              [' ', 'n', '#', 'n', '#', 'n', '#', 'n', '#', ' '],
+             [' ', '#', 'n', '#', 'n', '#', 'n', '#', 'n', ' '],
              [' ', '#', '#', '#', '#', '#', '#', '#', '#', ' '],
              [' ', '#', '#', '#', '#', '#', '#', '#', '#', ' '],
              [' ', 'a', '#', 'a', '#', 'a', '#', 'a', '#', ' '],
@@ -363,30 +475,25 @@ def main():
                 try:
 
                     mutari_pos = stare_curenta.tabla_joc.get_positions(stare_curenta.j_curent)
-                    print(f"Mutari posibile: {mutari_pos}")
-                    pozitii = [elem[0] for elem in mutari_pos]
+                    pozitii = [(idx, elem[0]) for idx, elem in enumerate(mutari_pos)]
+                    print(f"Mutari posibile: {pozitii}")
 
 
-                    linie = int(input("numar = "))
-                    coloana = str(input("litera = "))
-                    litere = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+                    pozitie_aleasa = int(input("pozitie aleasa din lista = "))
+
 
                     # de verificat daca "coloana" si "linie" sunt in intervalul corect,
                     # si daca e valida pozitia
 
-
-                    if linie in range(0, Joc.NR_LINII):
-                        if coloana in litere:
-                            if [linie, litere.index(coloana)] in pozitii:
-                                tabla_noua = mutari_pos.index([linie, coloana])[1]
-                                raspuns_valid = True
+                    if pozitie_aleasa in range(len(pozitii)):
+                        print(f"Alegerea ta: {pozitii[pozitie_aleasa]}")
+                        tabla_noua = mutari_pos[pozitie_aleasa][1]
+                        raspuns_valid = True
                     else:
-                        print(
-                            "Coloana sau linie invalida (trebuie sa fie un numar intre 0 si {} si pe o pozitie valida).".format(
-                                Joc.NR_COLOANE - 1))
+                        print(f"Indice pozitie invalid (trebuie sa fie un numar intre 0 si {len(pozitii)}")
 
                 except ValueError:
-                    print("Coloana si linia trebuie sa fie un numere intregi.")
+                    print("Indice pozitie trebuie sa fie un numere intregi.")
 
             # dupa iesirea din while sigur am valida coloana
             # deci pot plasa simbolul pe "tabla de joc"
