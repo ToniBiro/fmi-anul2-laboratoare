@@ -1,0 +1,13 @@
+
+------------------ Concluzie -----------------------
+Drum de cost minim:
+ [vase:
+0: [5, 4, 'rosu']
+1: [2, 2, 'galben']
+2: [3, 3, 'mov']
+3: [7, 3, 'albastru']
+4: [4, 2, 'verde']
+5: [4, 3, 'rosu']
+euristica: 0
+  ]
+Timp de rulare: 0 milisecunde.

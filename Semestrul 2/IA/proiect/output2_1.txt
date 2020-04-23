@@ -1,0 +1,4 @@
+
+------------------ Concluzie -----------------------
+Lista open e vida, nu avem drum de la nodul start la nodul scop
+Timp de rulare: 19295 milisecunde.

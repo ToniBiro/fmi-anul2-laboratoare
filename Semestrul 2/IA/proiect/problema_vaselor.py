@@ -5,9 +5,17 @@ from copy import deepcopy
 
 class Nod:
 
-    def __init__(self, info):
+    def __init__(self, info, h):
         self.info = info
-        self.h = self.euristica_1()
+        if int(h) == 1:
+            self.h = self.euristica_1()
+        elif int(h) == 2:
+            self.h = self.euristica_2()
+        elif int(h) == 3:
+            self.h = self.euristica_3()
+        else:
+            self.h = self.euristica_1()
+
 
     def __str__(self):
         sir = ''
@@ -21,28 +29,71 @@ class Nod:
         return f"({self.info}, h={self.h})"
 
     def euristica_1(self):
-        # ne uitam in toate culorile curente si daca nu gasim o culoare scop
-        # printre ele atunci crestem rez cu 1 deoarece inseamna ca
-        # trebuie sa facem cel putin o combinatie pentru a obtine culoarea cautata
+
+        """
+        verificam daca o culoare scop nu de afla printre clorile curente,
+        daca nu se afla verificam daca e o culoare compusa pentru a verifica daca cele 2
+        culori din care e compusa culoarea se afla printre cele curente, daca da, rez creste doar cu 1,
+        daca nu rez creste cu 2 deoarece trebuie sa mai amestecam cel putin 2 vase pentru a obtine culaorea scop
+        :return:
+        """
         rez = 0
         culori_curente = [vas[2] for vas in self.info]
 
-        for elem in nod_scop:
-            if elem[1] not in culori_curente:
+        culori_scop = [elem[1] for elem in nod_scop]
+        culori_scop = list(dict.fromkeys(culori_scop))
+
+        for culoare in culori_scop:
+            if culoare not in culori_curente:
+                for elem in combinatii:
+                    if culoare == elem[2]:
+                        if elem[0] not in culori_curente or elem[1] not in culori_curente:
+                            rez += 2
+                        else:
+                            rez += 1
+
+        return rez
+
+    def euristica_2(self):
+
+        """
+        ne uitam in toate culorile scop dupa ce indepartam duplicatele si daca nu gasim o culoare scop
+        printre culorile curente din vase atunci crestem rez cu 1 deoarece inseamna ca
+        trebuie sa facem cel putin o combinatie pentru a obtine culoarea cautata
+        :return: h
+        """
+        rez = 0
+        culori_curente = [vas[2] for vas in self.info]
+
+        culori_scop = [elem[1] for elem in nod_scop]
+        culori_scop = list(dict.fromkeys(culori_scop))
+
+        for culoare in culori_scop:
+            if culoare not in culori_curente:
                 rez = rez + 1
 
         return rez
 
     def euristica_3(self):  # inadmisibila
 
+        """
+        asemanator cu euristica_2 dar nu eliminam duplicatele
+        si rez s-ar putea sa creasca prea mult daca avem duplicate
+        :return: h
+                """
         rez = 0
+        culori_curente = [vas[2] for vas in self.info]
 
+        for elem in nod_scop:
 
+            if elem[1] not in culori_curente:
+                rez += 1
         return rez
 
 
 class Problema:
-    def __init__(self, combinatii=None, stare_initiala=None):
+    def __init__(self, h, combinatii=None, stare_initiala=None):
+        self.h = h
         if combinatii:
             self.combinatii = combinatii
         else:
@@ -51,14 +102,14 @@ class Problema:
                                ['mov', 'verde', 'maro']]
 
         if stare_initiala:
-            self.nod_start = Nod(stare_initiala)
+            self.nod_start = Nod(stare_initiala, self.h)
         else:
             self.nod_start = Nod([[5, 4, 'rosu'],
                                   [2, 2, 'galben'],
                                   [3, 0, ''],
                                   [7, 3, 'albastru'],
                                   [1, 0, ''],
-                                  [4, 3, 'rosu']])  # de tip Nod
+                                  [4, 3, 'rosu']], h)  # de tip Nod
 
 """ Sfarsit definire problema """
 
@@ -147,7 +198,7 @@ class NodParcurgere:
                     if j[1] == 0:
                         j[2] = ''
 
-                rez.append((Nod(vase_aux), 1))
+                rez.append((Nod(vase_aux, self.problema.h), 1))
 
         return rez
 
@@ -180,6 +231,7 @@ class NodParcurgere:
                         vase[0] = [vas[1] - nod_curent[idx][1], idx, vas[2]]
 
         sir += f"Din vasul {vase[0][1]} s-au turnat {vase[0][0]} litri de apa de culoare {vase[0][2]} in vasul {vase[1][1]}"
+        sir += f"\n h: {self.nod_graf.h}"
         return f"{sir}\n{self.nod_graf}"
 
 
@@ -233,7 +285,6 @@ def a_star():
         closed.append(nod_curent)
 
         if nod_curent.test_scop():
-            print(f"closed: {closed[0]}")
             open.append(nod_curent)
             break
         else:
@@ -265,24 +316,36 @@ def a_star():
                             closed.remove(is_in_closed)
 
     print("\n------------------ Concluzie -----------------------")
+    print("\n------------------ Concluzie -----------------------", file=fout)
     if (len(open) == 0):
-        print("Lista open e vida, nu avem drum de la nodul start la nodul scop")
+        print("Lista open e vida, nu avem drum de la nodul start la nodul scop", file=fout)
     else:
-        print("Drum de cost minim:\n " + str_info_noduri(nod_curent.drum_arbore()))
+        print("Drum de cost minim:\n " + str_info_noduri(nod_curent.drum_arbore()), file=fout)
 
 nod_scop = [(3, 'mov'),
             (2, 'verde')]
 
+combinatii = []
+
+fout = None
+
 if __name__ == "__main__":
     # citire date din fisier
-    inputFile = "input4.txt"
+    idx_file = int(input("numar fisier (alegeri valide: 1, 2, 3, 4)= "))
+    idx_file -= 1
 
-    combinatii = []
+    files = ["input1.txt", "input2.txt", "input3.txt", "input4.txt"]
+    output_files = ["output1_1.txt", "output2_1.txt", "output3_1.txt", "output4_1.txt"]
+    output_files_2 = ["output1_2.txt", "output2_2.txt", "output3_2.txt", "output4_2.txt"]
+    output_files_3 = ["output1_3.txt", "output2_3.txt", "output3_3.txt", "output4_3.txt"]
+
+    input_file = files[idx_file]
+
     stare_initiala = []
     stare_finala = []
     check = 0
 
-    with open(inputFile, 'r') as file:
+    with open(input_file, 'r') as file:
         for line in file:
             line = line.strip()
             if 'stare_initiala' in line:
@@ -311,9 +374,32 @@ if __name__ == "__main__":
     print(stare_initiala)
     print(combinatii)
 
-    problema = Problema(combinatii, stare_initiala)
+    fout = open(output_files[idx_file], 'w')
+
+    problema = Problema(combinatii=combinatii, stare_initiala=stare_initiala, h=1)
     NodParcurgere.problema = problema
     t_inainte = int(round(time.time() * 1000))
     a_star()
     t_dupa = int(round(time.time() * 1000))
-    print("Timp de rulare: " + str(t_dupa - t_inainte) + " milisecunde.")
+    print("Timp de rulare: " + str(t_dupa - t_inainte) + " milisecunde.", file=fout)
+
+    fout = open(output_files_2[idx_file], 'w')
+
+    problema = Problema(combinatii=combinatii, stare_initiala=stare_initiala, h=2)
+    NodParcurgere.problema = problema
+    t_inainte = int(round(time.time() * 1000))
+    a_star()
+    t_dupa = int(round(time.time() * 1000))
+    print("Timp de rulare: " + str(t_dupa - t_inainte) + " milisecunde.", file=fout)
+
+    fout = open(output_files_3[idx_file], 'w')
+
+    problema = Problema(combinatii=combinatii, stare_initiala=stare_initiala, h=3)
+    NodParcurgere.problema = problema
+    t_inainte = int(round(time.time() * 1000))
+    a_star()
+    t_dupa = int(round(time.time() * 1000))
+    print("Timp de rulare: " + str(t_dupa - t_inainte) + " milisecunde.", file=fout)
+
+
+    fout.close()
