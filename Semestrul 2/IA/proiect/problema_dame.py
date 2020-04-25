@@ -34,14 +34,14 @@ class Joc:
             l_mutari.append(Joc(tabla))
 
         # mutari la stanga
-        if tabla[a][b] == juc_opus and tabla[a + (-1*culoare)][b + (-1*culoare)] == Joc.GOL:
+        if tabla[a][b].upper() == juc_opus.upper() and tabla[a + (-1*culoare)][b + (-1*culoare)] == Joc.GOL:
             copie_tabla = deepcopy(tabla)
             copie_tabla[a][b] = Joc.GOL
             copie_tabla[i][j] = Joc.GOL
             self.multi_hop(a + (-1*culoare), b + (-1*culoare), culoare, jucator, l_mutari, copie_tabla)
 
         # mutari la dreapta
-        if tabla[a][c] == juc_opus and tabla[a + (-1*culoare)][c + (+1*culoare)] == Joc.GOL:
+        if tabla[a][c].upper() == juc_opus.upper() and tabla[a + (-1*culoare)][c + (+1*culoare)] == Joc.GOL:
             copie_tabla = deepcopy(tabla)
             copie_tabla[a][c] = Joc.GOL
             copie_tabla[i][j] = Joc.GOL
@@ -58,10 +58,10 @@ class Joc:
         # a,c - stanga sus  a,d - dreapta sus
         # b,c - stanga jos  b,d - dreapta jos
 
-        exista_mutari = (tabla[a][c] == juc_opus and tabla[a + (-1*culoare)][c + (-1*culoare)] == Joc.GOL) or\
-                        (tabla[a][d] == juc_opus and tabla[a + (-1*culoare)][d + (+1*culoare)] == Joc.GOL) or\
-                        (tabla[b][c] == juc_opus and tabla[b + (+1*culoare)][c + (-1*culoare)] == Joc.GOL) or\
-                        (tabla[b][d] == juc_opus and tabla[b + (+1*culoare)][d + (+1*culoare)] == Joc.GOL)
+        exista_mutari = (tabla[a][c].upper() == juc_opus.upper() and tabla[a + (-1*culoare)][c + (-1*culoare)] == Joc.GOL) or\
+                        (tabla[a][d].upper() == juc_opus.upper() and tabla[a + (-1*culoare)][d + (+1*culoare)] == Joc.GOL) or\
+                        (tabla[b][c].upper() == juc_opus.upper() and tabla[b + (+1*culoare)][c + (-1*culoare)] == Joc.GOL) or\
+                        (tabla[b][d].upper() == juc_opus.upper() and tabla[b + (+1*culoare)][d + (+1*culoare)] == Joc.GOL)
 
         if not exista_mutari:   # conditie de iesire din recursie - nu mai avem pozitii in care sa sarim
             if i == 1 or i == Joc.NR_LINII:  # verificam daca trebuie sa il facem rege
@@ -71,28 +71,28 @@ class Joc:
             l_mutari.append(Joc(tabla))
 
         # mutari la stanga sus
-        if tabla[a][c] == juc_opus and tabla[a + (-1*culoare)][c + (-1*culoare)] == Joc.GOL:
+        if tabla[a][c].upper() == juc_opus.upper() and tabla[a + (-1*culoare)][c + (-1*culoare)] == Joc.GOL:
             copie_tabla = deepcopy(tabla)
             copie_tabla[a][c] = Joc.GOL
             copie_tabla[i][j] = Joc.GOL
             self.multi_hop(a + (-1*culoare), c + (-1*culoare), culoare, jucator, l_mutari, copie_tabla)
 
         # mutari la dreapta sus
-        if tabla[a][d] == juc_opus and tabla[a + (-1*culoare)][d + (+1*culoare)] == Joc.GOL:
+        if tabla[a][d].upper() == juc_opus.upper() and tabla[a + (-1*culoare)][d + (+1*culoare)] == Joc.GOL:
             copie_tabla = deepcopy(tabla)
             copie_tabla[a][d] = Joc.GOL
             copie_tabla[i][j] = Joc.GOL
             self.multi_hop(a + (-1*culoare), d + (+1*culoare), culoare, jucator, l_mutari, copie_tabla)
 
         # mutari la stanga jos
-        if tabla[b][c] == juc_opus and tabla[b + (+1 * culoare)][c + (-1 * culoare)] == Joc.GOL:
+        if tabla[b][c].upper() == juc_opus.upper() and tabla[b + (+1 * culoare)][c + (-1 * culoare)] == Joc.GOL:
             copie_tabla = deepcopy(tabla)
             copie_tabla[b][c] = Joc.GOL
             copie_tabla[i][j] = Joc.GOL
             self.multi_hop(b + (+1 * culoare), c + (-1 * culoare), culoare, jucator, l_mutari, copie_tabla)
 
         # mutari la dreapta jos
-        if tabla[b][d] == juc_opus and tabla[b + (+1 * culoare)][d + (+1 * culoare)] == Joc.GOL:
+        if tabla[b][d].upper() == juc_opus.upper() and tabla[b + (+1 * culoare)][d + (+1 * culoare)] == Joc.GOL:
             copie_tabla = deepcopy(tabla)
             copie_tabla[b][d] = Joc.GOL
             copie_tabla[i][j] = Joc.GOL
@@ -143,10 +143,10 @@ class Joc:
         c = j + (-1 * culoare)
         d = j + (+1 * culoare)
 
-        exista_mutari = (self.matr[a][c] == juc_opus and self.matr[a + (-1*culoare)][c + (-1*culoare)] == Joc.GOL) or \
-                        (self.matr[a][d] == juc_opus and self.matr[a + (-1*culoare)][d + (+1*culoare)] == Joc.GOL) or \
-                        (self.matr[b][c] == juc_opus and self.matr[b + (+1*culoare)][c + (-1*culoare)] == Joc.GOL) or \
-                        (self.matr[b][d] == juc_opus and self.matr[b + (+1*culoare)][d + (+1*culoare)] == Joc.GOL)
+        exista_mutari = (self.matr[a][c].upper() == juc_opus.upper() and self.matr[a + (-1*culoare)][c + (-1*culoare)] == Joc.GOL) or \
+                        (self.matr[a][d].upper() == juc_opus.upper() and self.matr[a + (-1*culoare)][d + (+1*culoare)] == Joc.GOL) or \
+                        (self.matr[b][c].upper() == juc_opus.upper() and self.matr[b + (+1*culoare)][c + (-1*culoare)] == Joc.GOL) or \
+                        (self.matr[b][d].upper() == juc_opus.upper() and self.matr[b + (+1*culoare)][d + (+1*culoare)] == Joc.GOL)
 
         if exista_mutari:
             copie_tabla = deepcopy(self.matr)
@@ -185,8 +185,8 @@ class Joc:
         b = j + (-1 * culoare)
         c = j + (+1 * culoare)
 
-        exista_mutari = (self.matr[a][b] == juc_opus and self.matr[a + (-1*culoare)][b + (-1*culoare)] == Joc.GOL) or\
-                        (self.matr[a][c] == juc_opus and self.matr[a + (-1*culoare)][c + (+1*culoare)] == Joc.GOL)
+        exista_mutari = (self.matr[a][b].upper() == juc_opus.upper() and self.matr[a + (-1*culoare)][b + (-1*culoare)] == Joc.GOL) or\
+                        (self.matr[a][c].upper() == juc_opus.upper() and self.matr[a + (-1*culoare)][c + (+1*culoare)] == Joc.GOL)
 
         if exista_mutari:
             copie_tabla = deepcopy(self.matr)
@@ -218,7 +218,7 @@ class Joc:
 
             for i in range(1, Joc.NR_LINII+1):
                 for j in range(1, Joc.NR_COLOANE+1):
-                    if self.matr[i][j] != tabla.matr[i][j] and tabla.matr[i][j] == jucator:
+                    if self.matr[i][j] != tabla.matr[i][j] and tabla.matr[i][j].upper() == jucator.upper():
                         l_pozitii.append(([i, j], tabla))
 
         return l_pozitii
@@ -229,7 +229,17 @@ class Joc:
 
         for i in range(1, Joc.NR_LINII+1):
             for j in range(1, Joc.NR_COLOANE+1):
-                if self.matr[i][j] == jucator:
+                if self.matr[i][j].upper() == jucator.upper():
+                    rez += 1
+        return rez
+
+    def nr_regi_pe_tabla(self, jucator):
+        # ne uitam cati regi ale jucatorului curent sunt pe tabla
+        rez = 0
+
+        for i in range(1, Joc.NR_LINII + 1):
+            for j in range(1, Joc.NR_COLOANE + 1):
+                if self.matr[i][j] == jucator.upper():
                     rez += 1
         return rez
 
@@ -249,13 +259,28 @@ class Joc:
             return Joc.JMAX
 
         if len(mutari_min) == 0 and len(mutari_max) == 0:
-            return 'remiza'
+            if self.nr_piese_pe_tabla(Joc.JMIN) > self.nr_piese_pe_tabla(Joc.JMAX):
+                return Joc.MIN
+            elif self.nr_piese_pe_tabla(Joc.JMIN) < self.nr_piese_pe_tabla(Joc.JMAX):
+                return Joc.MAX
+            else:
+                return 'remiza'
+
 
         return False
 
-    def fct_euristica(self):
+    def fct_euristica1(self):
         # diferenta dintre nr de piese negre si cele albe de pe tabla in configuratia curenta
         return self.nr_piese_pe_tabla(Joc.JMAX) - self.nr_piese_pe_tabla(Joc.JMIN)
+
+    def fct_euristica2(self):
+        # diferenta dintre nr de piese negre si cele albe de pe tabla in configuratia curenta
+        # la care adaugam in plus nr de regi pentru fiecare culoare
+
+        estimare_min = self.nr_piese_pe_tabla(Joc.JMIN) + self.nr_regi_pe_tabla(Joc.JMIN)
+        estimare_max = self.nr_piese_pe_tabla(Joc.JMAX) + self.nr_regi_pe_tabla(Joc.JMAX)
+
+        return estimare_max - estimare_min
 
     def estimeaza_scor(self, adancime):
         t_final = self.final()
@@ -266,7 +291,7 @@ class Joc:
         elif t_final == 'remiza':
             return 0
         else:
-            return self.fct_euristica()
+            return self.fct_euristica2()
 
     def __str__(self):
         sir = '    a b c d e f g h\n    --------------\n'
@@ -397,19 +422,22 @@ def alpha_beta(alpha, beta, stare):
 
 def afis_daca_final(stare_curenta):
     final = stare_curenta.tabla_joc.final()
-    print(f"in afis final: {final}")
     if (final):
         if (final == "remiza"):
             print("Remiza!")
         else:
             print("A castigat " + final)
 
+        # afisare scor jucatori la sfarsitul jocului
+        print(f"Scor jucator uman: {stare_curenta.tabla_joc.nr_piese_pe_tabla(Joc.JMIN)}")
+        print(f"Scor calculator: {stare_curenta.tabla_joc.nr_piese_pe_tabla(Joc.JMAX)}")
+
         return True
 
     return False
 
 
-def main():
+def main(nr_mutari_jucatori):
     # initializare algoritm
     raspuns_valid = False
     while not raspuns_valid:
@@ -421,10 +449,11 @@ def main():
 
     # initializare ADANCIME_MAX
     raspuns_valid = False
+    nivele = ['incepator', 'mediu', 'avansat']
     while not raspuns_valid:
-        n = input("Adancime maxima a arborelui: ")
-        if n.isdigit():
-            Stare.ADANCIME_MAX = int(n)
+        n = input("Nivelul de dificultate (incepator, mediu, avansat): ")
+        if n in nivele:
+            Stare.ADANCIME_MAX = nivele.index(n)+1
             raspuns_valid = True
         else:
             print("Trebuie sa introduceti un numar natural nenul.")
@@ -457,20 +486,20 @@ def main():
              [' ', 'a', '#', 'a', '#', 'a', '#', 'a', '#', ' '],
              [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
 
-    print("Init tabla joc")
     tabla_curenta = Joc(tabla)
     print("Tabla initiala")
     print(str(tabla_curenta))
 
     # creare stare initiala
     stare_curenta = Stare(tabla_curenta, 'n', Stare.ADANCIME_MAX)
-    print(type(stare_curenta))
 
     while True:
         if (stare_curenta.j_curent == Joc.JMIN):
             # muta jucatorul
             raspuns_valid = False
             tabla_noua = None
+
+            t_inainte = int(round(time.time() * 1000))
             while not raspuns_valid:
                 try:
 
@@ -478,9 +507,12 @@ def main():
                     pozitii = [(idx, elem[0]) for idx, elem in enumerate(mutari_pos)]
                     print(f"Mutari posibile: {pozitii}")
 
-
-                    pozitie_aleasa = int(input("pozitie aleasa din lista = "))
-
+                    input_ = input("pozitie aleasa din lista = ")
+                    if input_ == 'exit':
+                        print(f"Scor jucator uman: {stare_curenta.tabla_joc.nr_piese_pe_tabla(Joc.JMIN)}")
+                        print(f"Scor calculator: {stare_curenta.tabla_joc.nr_piese_pe_tabla(Joc.JMAX)}")
+                        return False
+                    pozitie_aleasa = int(input_)
 
                     # de verificat daca "coloana" si "linie" sunt in intervalul corect,
                     # si daca e valida pozitia
@@ -493,15 +525,20 @@ def main():
                         print(f"Indice pozitie invalid (trebuie sa fie un numar intre 0 si {len(pozitii)}")
 
                 except ValueError:
-                    print("Indice pozitie trebuie sa fie un numere intregi.")
+                    print("Indice pozitie trebuie sa fie un numere intreg.")
 
             # dupa iesirea din while sigur am valida coloana
             # deci pot plasa simbolul pe "tabla de joc"
             stare_curenta.tabla_joc = tabla_noua
 
+            t_dupa = int(round(time.time() * 1000))
+            print("Jucatorul a \"gandit\" timp de " + str(t_dupa - t_inainte) + " milisecunde.")
+
             # afisarea starii jocului in urma mutarii utilizatorului
             print("\nTabla dupa mutarea jucatorului")
             print(str(stare_curenta))
+
+            nr_mutari_jucatori[0] += 1
 
             # testez daca jocul a ajuns intr-o stare finala
             # si afisez un mesaj corespunzator in caz ca da
@@ -521,7 +558,7 @@ def main():
                 stare_actualizata = min_max(stare_curenta)
             else:  # tip_algoritm==2
                 stare_actualizata = alpha_beta(-5000, 5000, stare_curenta)
-            print(f"stare actualiazta: {type(stare_actualizata.stare_aleasa)}")
+
             stare_curenta.tabla_joc = stare_actualizata.stare_aleasa.tabla_joc
             print("Tabla dupa mutarea calculatorului")
             print(str(stare_curenta))
@@ -529,6 +566,8 @@ def main():
             # preiau timpul in milisecunde de dupa mutare
             t_dupa = int(round(time.time() * 1000))
             print("Calculatorul a \"gandit\" timp de " + str(t_dupa - t_inainte) + " milisecunde.")
+
+            nr_mutari_jucatori[1] += 1
 
             if (afis_daca_final(stare_curenta)):
                 break
@@ -538,4 +577,18 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    t_inainte = int(round(time.time() * 1000))
+
+
+    # nr_mutari_jucatori[0] -> mutari ale Joc.MIN
+    # nr_mutari_jucatori[1] -> mutari ale Joc.Max
+    nr_mutari_jucatori = [0, 0]
+
+    main(nr_mutari_jucatori)
+
+
+    t_dupa = int(round(time.time() * 1000))
+    print("Jocul a rulat timp de " + str(t_dupa - t_inainte) + " milisecunde.")
+
+    print(f"Jucatorul uman a facut {nr_mutari_jucatori[0]} mutari")
+    print(f"Calculatorul a facut {nr_mutari_jucatori[1]} mutari")
