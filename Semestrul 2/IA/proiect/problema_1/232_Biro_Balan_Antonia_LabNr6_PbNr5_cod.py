@@ -1,4 +1,4 @@
-""" definirea problemei """
+# 232 Biro Balan Antonia
 
 import time
 from copy import deepcopy
