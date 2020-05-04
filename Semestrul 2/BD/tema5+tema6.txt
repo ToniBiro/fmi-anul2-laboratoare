@@ -1,0 +1,242 @@
+select * from employees;
+
+-- lab5
+--ex14
+-- b)
+select employee_id, last_name, hire_date, salary, manager_id
+from employees 
+start with last_name = 'De Haan'
+connect by prior employee_id = manager_id;
+
+
+--ex14
+-- obs bottom-up
+
+select employee_id, last_name, hire_date, salary, manager_id
+from employees 
+start with last_name = (select last_name from employees where manager_id = (select employee_id from employees where last_name = 'De Haan'))
+connect by prior manager_id = employee_id;
+
+--ex15
+select * from employees
+start with employee_id = 114
+connect by prior employee_id = manager_id
+
+--ex16
+
+select employee_id, manager_id, last_name from employees
+where level > 2
+start with last_name = 'De Haan'
+connect by prior employee_id = manager_id
+
+--ex17
+
+select employee_id, manager_id, level, last_name from employees
+connect by prior employee_id = manager_id
+
+--ex18
+
+select employee_id, last_name, salary, level, manager_id from employees
+start with last_name = (select last_name from employees where salary = (select max(salary) from employees))
+connect by prior employee_id = manager_id and salary > 5000;
+
+--ex18
+
+select employee_id, last_name, salary, level, manager_id from employees
+where salary > 5000
+start with last_name = (select last_name from employees where salary = (select max(salary) from employees))
+connect by prior employee_id = manager_id;
+
+--ex20
+
+with subord as (
+  select first_name || ' ' || last_name, employee_id, hire_date  from employees
+  where level = 2
+  start with first_name = 'Steven' and last_name = 'King'
+  connect by prior employee_id = manager_id
+)
+select first_name || ' ' || last_name, employee_id, job_id, hire_date from subord
+where to_number(hire_date) = (select min(to_number(hire_date)) from subord)
+
+--ex22
+select * from (
+  select e.job_id, (select avg(salary) from employees where job_id = e.job_id) from employees e
+  group by e.job_id
+  order by 2 asc
+)
+where rownum <= 3;
+
+--lab6
+
+--ex2
+-- S? se listeze informatii despre proiectele la care au participat toti angaja?ii care au de?inut alte 2 posturi în firm?.
+
+select * from works_on;
+
+select project_id from works_on
+where employee_id in (
+  select employee_id from job_history
+  group by employee_id
+  having count(employee_id) = 2
+)
+group by project_id
+having count(employee_id) = 
+(
+select count(*) from (select employee_id from job_history
+  group by employee_id
+  having count(employee_id) = 2)
+  
+  );
+
+
+--ex3
+
+select * from employees;
+
+select employee_id from employees
+where employee_id in (
+select employee_id from job_history
+  group by employee_id
+  having count(employee_id) >= 2
+)
+union
+select employee_id from job_history
+  group by employee_id
+  having count(employee_id) >= 3;
+
+--ex4
+
+select country_id from countries
+group by country_id;
+select * from regions;
+select country_id from locations
+group by country_id;
+select * from departments;
+
+
+
+select c.country_id, count(e.employee_id) from countries c
+join locations l on l.country_id = c.country_id
+join departments d on d.location_id = l.location_id
+join employees e on e.department_id = d.department_id
+group by c.country_id;
+
+--ex5
+
+select * from projects;
+
+select employee_id, last_name from employees
+where employee_id in(
+
+  select employee_id from works_on
+  where project_id in(
+  select project_id from projects where delivery_date > deadline)
+  group by employee_id, last_name
+  having count(employee_id) >= 2
+  
+);
+
+--ex6
+
+select * from works_on;
+
+select e.employee_id, w.project_id from employees e
+left join works_on w on e.employee_id = w.employee_id
+;
+
+--ex7
+
+select * from employees
+where department_id in (
+  select department_id from employees
+  where employee_id in (
+  select project_manager from projects));
+        
+--ex8
+
+select * from employees
+where department_id not in (
+  select department_id
+  from employees
+  where employee_id in (
+  select project_manager from projects));
+
+--ex9
+
+select department_id, avg(salary)
+from employees e
+group by department_id
+having avg(salary) > &salariu;
+
+--ex10
+
+select * from employees
+where employee_id in (
+  select project_manager from projects
+  group by project_manager
+  having count(project_manager) >= 2);
+
+--ex11
+
+select employee_id from works_on
+where project_id in (
+  select project_id from projects where project_manager = 102)
+  and project_id not in ( select project_id from projects where project_manager != 102);
+
+--ex12
+--a)
+
+select employee_id from works_on
+where project_id in (
+  select project_id from works_on w
+  group by project_id, employee_id
+  having employee_id = 200
+)
+group by employee_id
+having count(project_id) >= (
+select count(*) from (select count(project_id) from works_on
+  group by project_id, employee_id
+  having employee_id = 200)
+);
+
+--b)
+
+select employee_id from works_on
+where project_id in (
+  select project_id from works_on w
+  group by project_id, employee_id
+  having employee_id = 200
+)
+group by employee_id
+having count(project_id) <= (
+select count(*) from (select count(project_id) from works_on
+  group by project_id, employee_id
+  having employee_id = 200)
+);
+
+--ex13
+
+select * from works_on;
+
+select employee_id from works_on
+where project_id in (
+  select project_id from works_on w
+  group by project_id, employee_id
+  having employee_id = 200
+)
+group by employee_id
+having count(project_id) = (
+select count(*) from (select count(project_id) from works_on
+  group by project_id, employee_id
+  having employee_id = 200)
+);
+
+--ex14
+
+--a)
+select * from job_grades;
+--b)
+
+select e.employee_id, e.last_name, e.first_name, e.salary, 
+(select grade_level from job_grades where e.salary >= lowest_sal and e.salary <= highest_sal)
+from employees e;
