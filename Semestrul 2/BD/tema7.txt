@@ -1,0 +1,182 @@
+create table emp_abi as select * from employees;
+
+create table dept_abi as select * from departments;
+
+--lab7
+
+--ex2
+
+desc employees;
+
+desc emp_abi;
+
+-- nu e nici o diferenta intre structurile tabelelor
+
+--ex3
+
+select * from emp_abi;
+
+--ex12
+
+create table emp1_abi as select * from employees;
+create table emp2_abi as select * from employees;
+create table emp3_abi as select * from employees;
+
+truncate table emp1_abi;
+truncate table emp2_abi;
+truncate table emp3_abi;
+
+
+--a)
+insert into emp1_abi
+ (select * from employees where salary < 5000); 
+
+select * from emp1_abi;
+
+rollback;
+
+--b)
+insert into emp2_abi
+ (select * from employees where salary >= 5000 and salary <= 10000); 
+ 
+ select * from emp2_abi;
+ 
+ rollback;
+
+--c)
+insert into emp3_abi
+ (select * from employees where salary > 10000); 
+ 
+ select * from emp3_abi;
+ 
+ rollback;
+ 
+ --ex13
+ 
+ create table emp0_abi as select * from employees;
+ truncate table emp0_abi;
+ 
+ 
+ --a)
+ insert into emp0_rdi
+    (select * from employees where department_id = 80);
+
+select * from emp0_abi;
+  
+rollback;
+
+--b)
+insert into emp1_abi
+ (select * from employees where salary < 5000 and department_id <> 80); 
+
+select * from emp1_abi;
+
+rollback;
+
+--c)
+insert into emp2_abi
+ (select * from employees where salary >= 5000 and salary <= 10000 and department_id <> 80); 
+ 
+ select * from emp2_abi;
+ 
+ rollback;
+
+--d)
+insert into emp3_abi
+ (select * from employees where salary > 10000 and department_id <> 80); 
+ 
+ select * from emp3_abi;
+ 
+ rollback;
+ 
+--ex19
+
+create table emp4_abi as select * from employees;
+
+update emp4_abi e1
+set salary = (select avg(salary) from emp1_abi)
+where hire_date = (select max(hire_date) from employees where department_id = e1.department_id);
+
+select * from emp4_abi;
+
+rollback;
+
+--ex20
+
+update emp4_abi e1
+set (job_id, department_id) = (select job_id, department_id from employees where employee_id = 205)
+where employee_id = 114;
+
+select * from emp4_abi;
+
+--ex21
+
+accept p_id prompt 'deptartment_id = '
+select * from dept1_abi where department_id = &p_id;
+accept p_name prompt 'department_name = ';
+accept p_mng prompt 'manager_id = ';
+accept p_loc prompt 'location_id = ';
+update dept1_abi
+set (department_name, manager_id, location_id) = (select '&p_name', '&p_mng', '&p_loc' from dual)
+where department_id = &p_id;
+
+rollback;
+--ex25
+
+accept p_id prompt 'id=';
+select * from emp4_abi where employee_id = &p_id;
+delete from emp4_abi
+where employee_id = &p_id;
+
+select * from emp_abi;
+
+rollback;
+
+--ex26 am copiat codul de la ex 11 
+-- 11
+accept p_id prompt 'Id = ';
+accept p_nume prompt 'Nume = ';
+accept p_prenume prompt 'Prenume = ';
+accept p_salariu prompt 'Salariu = ';
+insert into emp_abi(employee_id, last_name, first_name, email, salary, job_id, hire_date)
+values (&p_id, '&p_nume', '&p_prenume', concat(substr('&p_prenume', 0, 1), substr('&p_nume', 0, 7)), &p_salariu, 'IT_PROG', sysdate);
+
+rollback;
+
+
+--ex27 - ?
+
+--ex28
+
+delete from emp_abi
+where 1=1;
+
+select * from emp_abi;
+
+rollback;
+
+--ex29
+
+-- am dat commit inainte dupa penultima schimbare si rollback dupa stergere
+
+accept p_id prompt 'Id = ';
+accept p_nume prompt 'Nume = ';
+accept p_prenume prompt 'Prenume = ';
+accept p_salariu prompt 'Salariu = ';
+insert into emp_abi(employee_id, last_name, first_name, email, salary, job_id, hire_date)
+values (&p_id, '&p_nume', '&p_prenume', concat(substr('&p_prenume', 0, 1), substr('&p_nume', 0, 7)), &p_salariu, 'IT_PROG', sysdate);
+
+commit;
+
+delete from emp_abi
+where 1=1;
+
+select * from emp_abi;
+
+rollback;
+
+--ex30
+
+select * from emp_abi;
+commit;
+
