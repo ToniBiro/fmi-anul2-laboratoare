@@ -3,7 +3,6 @@
 import time
 from copy import deepcopy
 
-
 class Joc:
     """
     Clasa care defineste jocul. Se va schimba de la un joc la altul.

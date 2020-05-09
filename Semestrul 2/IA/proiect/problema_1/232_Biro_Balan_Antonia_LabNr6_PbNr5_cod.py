@@ -181,7 +181,7 @@ class NodParcurgere:
                 vase_aux = deepcopy(vase_curente)   # copiez configuratia ca sa o pot modifica de fiecare data
                 i = vase_aux[a]
                 j = vase_aux[b]
-                if i[0] > i[1] and j[1] > 0 and i != j:  # daca am unde turna si am ce turna atunci
+                if i != j and i[0] > i[1] and j[1] > 0:  # daca am unde turna si am ce turna atunci
                     incape = i[0] - i[1]    # vad cat incape
                     i[1] += min(incape, j[1])
                     j[1] -= min(incape, j[1])   # calculez ce se intampla dupa turnare
@@ -334,7 +334,7 @@ if __name__ == "__main__":
     idx_file = int(input("numar fisier (alegeri valide: 1, 2, 3, 4)= "))
     idx_file -= 1
 
-    files = ["input1.txt", "input2.txt", "input3.txt", "input4.txt"]
+    files = ["232_Biro_Balan_Antonia_LabNr6_PbNr5_input1.txt", "232_Biro_Balan_Antonia_LabNr6_PbNr5_input2.txt", "232_Biro_Balan_Antonia_LabNr6_PbNr5_input3.txt", "232_Biro_Balan_Antonia_LabNr6_PbNr5_input4.txt"]
     output_files = ["output1_1.txt", "output2_1.txt", "output3_1.txt", "output4_1.txt"]
     output_files_2 = ["output1_2.txt", "output2_2.txt", "output3_2.txt", "output4_2.txt"]
     output_files_3 = ["output1_3.txt", "output2_3.txt", "output3_3.txt", "output4_3.txt"]
